@@ -24,4 +24,5 @@ try {
     Pop-Location
 }
 
+& (Join-Path $projectRoot 'scripts\run_e2e.ps1') | Out-Host
 & (Join-Path $projectRoot 'scripts\build_mapgis_plugin.ps1') | Out-Host

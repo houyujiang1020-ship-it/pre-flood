@@ -56,3 +56,14 @@
 
 - 实现：道路积水分级、不可通行边剔除、积水阻抗惩罚的 Dijkstra 安全路径；灾损汇总 DTO；基于真实输入值的 UTF-8 HTML 灾情报告。
 - 验证：安全路线主动绕过阻断捷径；不可达场景抛出结构化错误；报告中文、数值和 HTML 转义测试通过。
+
+## 2026-08-23 — MapGIS Java 宿主启动试验
+
+- 命令：使用安装目录 JRE 21、Program 和 `lib` 全类路径启动官方 `DesktopLauncher`。
+- 结果：官方启动器、JavaFX 21 和 UI 字体成功初始化，随后在产品授权阶段报告目标 `.lic` 缺失，并且硬 Key 验证失败。
+- 处理：未把“洪涝插件加载”或“AI 结果加载至 MapGIS”标成完成；授权细节已写入 `BLOCKERS.md`，增加补齐许可后的宿主验证脚本。
+
+## 2026-08-23 — 自动化跨进程 E2E
+
+- 实现：可重复生成中文文件名演示影像；PowerShell 隐藏启动/健康等待/可靠关闭 AI 服务；Java 从真实 HTTP 服务提交任务并校验输出文件和统计结果。
+- 验证：`.\scripts\run_e2e.ps1` BUILD SUCCESS，1 integration test passed；没有遗留 Uvicorn 进程。
