@@ -19,3 +19,7 @@ release/**
 config/application.local.yaml
 *.log
 upstream/
+tools/*.zip
+tools/*.sha512
+tools/apache-maven-*/
+tools/jdk-*/

@@ -15,9 +15,9 @@
 
 - Git 2.53.0.windows.3：可用
 - 系统 Python 3.13.11：可用，但不作为 SpaceNet8 主环境
-- Python 3.10.11：正在通过 winget 安装
-- Java：PATH 中不可用
-- Maven：PATH 中不可用
+- Python 3.10.11：已通过 winget 安装；项目 `.venv` 已创建并验证
+- Java：项目本地 Microsoft OpenJDK 17.0.20.1，`java`/`javac` 均已验证
+- Maven：项目本地 Apache Maven 3.9.16，发行包 SHA-512 已按官方校验文件验证
 - MapGIS 自带 JRE：Java 8u144、Temurin 17.0.13、OpenJDK 21.0.11；均为运行时，不含 `javac`
 - MapGIS-Desktop-Java 官方源码的 Maven 编译目标：Java 8（由各模块 `pom.xml` 的 source/target 1.8 验证）
 
@@ -31,4 +31,4 @@
 
 ## 结论
 
-硬件可支持 6 GB 显存的小批量训练/推理。当前需补齐 Python 3.10、JDK 8 和 Maven；这些属于工具链安装项，不阻断源码分析和工程骨架建设。
+硬件可支持 6 GB 显存的小批量训练/推理。Python、JDK 和 Maven 已由可重复脚本配置；Java 构建统一强制 UTF-8，中文项目路径已通过 Maven 版本启动检查。

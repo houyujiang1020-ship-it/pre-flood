@@ -4,8 +4,8 @@
 
 ## Environment
 - [x] 环境检查脚本可运行
-- [ ] Python 环境可复现
-- [ ] Java 环境可复现
+- [x] Python 环境可复现
+- [x] Java 环境可复现
 - [x] MapGIS SDK 状态明确
 
 ## Upstream
