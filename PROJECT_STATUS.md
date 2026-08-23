@@ -10,7 +10,7 @@
 
 ## Upstream
 - [x] MapGIS-Desktop-Java 已克隆并锁定
-- [ ] SpaceNet8 已克隆并锁定
+- [x] SpaceNet8 已获取并锁定
 - [ ] 上游许可证与依赖已审计
 
 ## AI
