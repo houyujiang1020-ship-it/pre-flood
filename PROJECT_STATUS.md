@@ -17,13 +17,13 @@
 - [ ] SpaceNet8 最小真实推理
 - [x] FastAPI health
 - [x] FastAPI inference
-- [ ] CLI predict
+- [x] CLI predict
 - [x] AI Service 自动测试
 
 ## MapGIS
 - [ ] Desktop 工程构建
 - [ ] 洪涝插件加载
-- [ ] Java 调用 AI 服务
+- [x] Java 调用 AI 服务
 - [ ] AI 结果加载至 MapGIS
 
 ## Product

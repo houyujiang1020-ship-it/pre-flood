@@ -36,3 +36,10 @@
 - 解决：建立独立 FastAPI/CLI 架构和明确标识的变化分析 fallback；不引入 GDAL/Fiona/GeoPandas；API 明示生产 checkpoint 未加载。
 - 涉及：`app/ai-service`、`scripts/start_ai.ps1`、`scripts/run_tests.ps1`、`docs/API.md`。
 - 验证：pytest 3 passed；Uvicorn 实际启动且 `/health` HTTP 200；中文路径推理结果文件存在且统计非零。
+
+## 2026-08-23 — Java AI 客户端与风险引擎
+
+- 问题：桌面端尚无可测试的 AI 服务调用边界，也缺少独立于 UI 的风险计算核心。
+- 解决：新增 Java 17 Maven 模块、异步任务 DTO、HTTP 客户端、结构化异常和可配置风险评分器；测试使用本地 HTTP mock，并增加真实 Python 服务集成测试。
+- 调试记录：首次从 PowerShell 传递 `-Dai.url=...` 时未加引号，被 Maven 解析成错误生命周期参数；改用单引号包裹完整 `-D` 参数后通过。
+- 验证：Java 单元测试 3 passed；真实 Java→Uvicorn `/health` 集成测试 1 passed，Python 服务日志确认 HTTP 200。
