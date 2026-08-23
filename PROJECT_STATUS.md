@@ -15,10 +15,10 @@
 
 ## AI
 - [ ] SpaceNet8 最小真实推理
-- [ ] FastAPI health
-- [ ] FastAPI inference
+- [x] FastAPI health
+- [x] FastAPI inference
 - [ ] CLI predict
-- [ ] 自动测试
+- [x] AI Service 自动测试
 
 ## MapGIS
 - [ ] Desktop 工程构建

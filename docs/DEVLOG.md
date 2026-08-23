@@ -28,3 +28,11 @@
 - 原因：GitHub blob 通道异常；Microsoft JDK 17 不捆绑 JavaFX，而 2020 年上游源码依赖 JavaFX 及 `com.sun.javafx` 内部包。
 - 解决：下载并展开 GitHub 官方 codeload `main` 归档，使用 partial clone 与 GitHub API 共同锁定 commit `30ca30c...`；JavaFX 构建问题保留为下一项真实兼容工作，不伪造构建成功。
 - 验证：SpaceNet8 根 README、LICENSE、baseline README 均存在；MapGIS Maven 已成功进入源码编译阶段，失败点明确为 JavaFX 类路径而非 JDK/Maven不可用。
+
+## 2026-08-23 — AI Service MVP
+
+- 问题：官方 SpaceNet8 仓库未提供可直接使用的 baseline `best_model.pth`；历史运行环境携带重型 GIS 依赖。
+- 原因：README 只给出用户训练后 checkpoint 的路径；baseline 将科研预处理、模型和 GIS 后处理放在同一 Docker 环境。
+- 解决：建立独立 FastAPI/CLI 架构和明确标识的变化分析 fallback；不引入 GDAL/Fiona/GeoPandas；API 明示生产 checkpoint 未加载。
+- 涉及：`app/ai-service`、`scripts/start_ai.ps1`、`scripts/run_tests.ps1`、`docs/API.md`。
+- 验证：pytest 3 passed；Uvicorn 实际启动且 `/health` HTTP 200；中文路径推理结果文件存在且统计非零。
