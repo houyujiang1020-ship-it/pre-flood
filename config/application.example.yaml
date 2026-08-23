@@ -1,0 +1,18 @@
+project:
+  root: "C:/Users/33076/Desktop/高级开发"
+ai:
+  host: "127.0.0.1"
+  port: 8765
+  device: "auto"
+data:
+  spacenet8: "C:/Users/33076/Desktop/高级开发/data/spacenet8"
+models:
+  root: "C:/Users/33076/Desktop/高级开发/models"
+mapgis:
+  install_root: "C:/Program Files/MapGIS 10"
+risk:
+  flood: 0.30
+  population: 0.25
+  building_damage: 0.20
+  road_accessibility: 0.15
+  medical_accessibility: 0.10
