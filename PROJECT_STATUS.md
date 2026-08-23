@@ -21,7 +21,7 @@
 - [x] AI Service 自动测试
 
 ## MapGIS
-- [ ] Desktop 工程构建
+- [x] Desktop 工程构建
 - [ ] 洪涝插件加载
 - [x] Java 调用 AI 服务
 - [ ] AI 结果加载至 MapGIS

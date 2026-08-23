@@ -15,3 +15,12 @@
 - 真实联调：启动 Python Uvicorn 后执行 `RealAiServiceIT`，Java 请求 `http://127.0.0.1:8765/health` 返回 HTTP 200；1 passed，0 failed。
 - 联合回归入口：`scripts/run_tests.ps1` 依次执行 Python 与 Java 测试。
 - 边界：当前完成的是可运行的 Java 服务调用核心，不代表 MapGIS 插件已完成加载。
+
+## 2026-08-23 — MapGIS SDK 编译与决策业务回归
+
+- 联合命令：`.\scripts\run_tests.ps1`
+- Python：3 passed，0 failed。
+- Java 17 核心：6 passed，0 failed；新增洪灾安全路径、不可达路径、HTML 报告真实数值和 HTML 转义测试。
+- MapGIS Java 21：使用本机 `mapgis_pluginengine.jar`、`mapgis_geomap.jar`、`mapgis_ui_controls.jar` 编译 12 个源文件，6 tests passed，生成 `target\mapgis-floodguard-plugin.jar`。
+- 产物核验：插件命令、MapGIS 结果图层加载器和 Jackson JSON 类均在 JAR 内；命令字节码 major version 65，与本机 MapGIS Java 21 SDK 一致。
+- 边界：SDK 编译和打包已真实完成；仍需在 MapGIS Ribbon 宿主中完成可见加载后，才能勾选“洪涝插件加载”和“AI 结果加载至 MapGIS”。

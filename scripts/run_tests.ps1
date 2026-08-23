@@ -23,3 +23,5 @@ try {
 } finally {
     Pop-Location
 }
+
+& (Join-Path $projectRoot 'scripts\build_mapgis_plugin.ps1') | Out-Host

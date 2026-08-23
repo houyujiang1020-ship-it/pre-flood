@@ -43,3 +43,16 @@
 - 解决：新增 Java 17 Maven 模块、异步任务 DTO、HTTP 客户端、结构化异常和可配置风险评分器；测试使用本地 HTTP mock，并增加真实 Python 服务集成测试。
 - 调试记录：首次从 PowerShell 传递 `-Dai.url=...` 时未加引号，被 Maven 解析成错误生命周期参数；改用单引号包裹完整 `-D` 参数后通过。
 - 验证：Java 单元测试 3 passed；真实 Java→Uvicorn `/health` 集成测试 1 passed，Python 服务日志确认 HTTP 200。
+
+## 2026-08-23 — MapGIS Java 21 插件适配
+
+- 问题：JDK 17 编译本机 MapGIS JAR 时报告类文件版本 65 与编译器版本 61 不兼容。
+- 原因：当前安装版 MapGIS 10 SDK 已使用 Java 21 构建，而独立业务核心仍以 Java 17 为最低运行版本。
+- 解决：安装 Microsoft OpenJDK 21.0.12.1；采用双构建模式，核心测试继续使用项目 JDK 17，`mapgis-sdk` Profile 使用 JDK 21 和真实本机 SDK JAR；增加阴影插件包但排除宿主提供的 MapGIS/JavaFX。
+- 涉及：`app/mapgis-flood-desktop/pom.xml`、`src/mapgis/java`、`scripts/build_mapgis_plugin.ps1`。
+- 验证：MapGIS Profile BUILD SUCCESS，6 tests passed，插件 JAR 字节码版本 65。
+
+## 2026-08-23 — 应急决策核心
+
+- 实现：道路积水分级、不可通行边剔除、积水阻抗惩罚的 Dijkstra 安全路径；灾损汇总 DTO；基于真实输入值的 UTF-8 HTML 灾情报告。
+- 验证：安全路线主动绕过阻断捷径；不可达场景抛出结构化错误；报告中文、数值和 HTML 转义测试通过。

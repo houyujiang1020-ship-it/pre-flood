@@ -10,6 +10,8 @@
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>5.13.4</junit.version>
+    <mapgis.home>C:/Program Files/MapGIS 10/Program</mapgis.home>
+    <javafx.version>17.0.16</javafx.version>
   </properties>
   <dependencies>
     <dependency>
@@ -33,4 +35,38 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>mapgis-sdk</id>
+      <build><plugins><plugin>
+        <groupId>org.codehaus.mojo</groupId><artifactId>build-helper-maven-plugin</artifactId><version>3.6.1</version>
+        <executions><execution><id>mapgis-source</id><phase>generate-sources</phase><goals><goal>add-source</goal></goals>
+          <configuration><sources><source>src/mapgis/java</source></sources></configuration>
+        </execution></executions>
+      </plugin><plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>3.6.1</version>
+        <executions><execution><phase>package</phase><goals><goal>shade</goal></goals><configuration>
+          <finalName>mapgis-floodguard-plugin</finalName><createDependencyReducedPom>false</createDependencyReducedPom>
+          <artifactSet><excludes><exclude>org.openjfx:*</exclude><exclude>com.zondy.mapgis:*</exclude></excludes></artifactSet>
+        </configuration></execution></executions>
+      </plugin></plugins></build>
+      <dependencies>
+        <dependency>
+          <groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.zondy.mapgis</groupId><artifactId>pluginengine</artifactId><version>10-local</version><scope>system</scope>
+          <systemPath>${mapgis.home}/mapgis_pluginengine.jar</systemPath>
+        </dependency>
+        <dependency>
+          <groupId>com.zondy.mapgis</groupId><artifactId>geomap</artifactId><version>10-local</version><scope>system</scope>
+          <systemPath>${mapgis.home}/mapgis_geomap.jar</systemPath>
+        </dependency>
+        <dependency>
+          <groupId>com.zondy.mapgis</groupId><artifactId>ui-controls</artifactId><version>10-local</version><scope>system</scope>
+          <systemPath>${mapgis.home}/mapgis_ui_controls.jar</systemPath>
+        </dependency>
+      </dependencies>
+    </profile>
+  </profiles>
 </project>
