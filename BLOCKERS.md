@@ -2,6 +2,12 @@
 
 ## MapGIS Objects Java 21 运行授权
 
+### 当前需要的外部操作
+
+请在本机通过官方 `C:\Program Files\MapGIS 10\Program\desktop-developer.bat` 管理员启动流程，确认云开发授权登录、有效期及本机/产品范围；如仍失败，需在官方授权管理或厂商支持渠道修复。工程侧已确认注册表有授权信息，但不能据此判断许可有效。无需向聊天发送密钥或授权文件内容。
+
+2026-08-27最新完整启动：AI CUDA就绪，DesktopLauncher --developer --custom-ui进入授权阶段后明确失败。脚本已清理全部本次进程。用户确认官方宿主授权成功后，执行 `scripts/start_demo.ps1` 继续插件、空间化、网络与完整GIS业务验收；其余未完成项见PROJECT_STATUS，不宣称自动变成已完成。
+
 ### 2026-08-27 更正（以下旧记录仅保留排查历史）
 
 已发现下载目录的开发授权包及当前用户 Developer 注册表授权。官方 `desktop-developer.bat` 使用 `--developer`；实测加此参数后宿主识别“云开发授权”，但验证仍失败。不能再把缺少 `.lic` 当作所有模式的阻塞原因。`verify_mapgis_host.ps1` 已移除错误的 .lic 前置检查，默认 Developer 模式，记录 stdout/stderr，并明确进程存活不等于授权通过。下一步需通过官方开发启动脚本、管理员权限和云授权状态排查；不得修改授权校验或密钥。

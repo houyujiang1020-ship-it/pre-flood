@@ -17,11 +17,16 @@ class RealAiServiceIT {
         assertEquals("ok", health.status());
         assertTrue(health.model_loaded());
         assertNotNull(health.backend());
+        if (System.getProperty("ai.expectedBackend") != null) assertEquals(System.getProperty("ai.expectedBackend"), health.backend());
+        if (System.getProperty("ai.expectedDevice") != null) assertEquals(System.getProperty("ai.expectedDevice"), health.device());
 
         String pre = System.getProperty("demo.pre");
         String post = System.getProperty("demo.post");
         String output = System.getProperty("demo.output");
-        if (pre != null && post != null && output != null) {
+        assertNotNull(pre, "demo.pre required: health alone is not an inference integration test");
+        assertNotNull(post, "demo.post required");
+        assertNotNull(output, "demo.output required");
+        {
             var client = new AiServiceClient(URI.create(url));
             var job = client.submit(Path.of(pre), Path.of(post), Path.of(output));
             Instant deadline = Instant.now().plusSeconds(30);
@@ -31,7 +36,12 @@ class RealAiServiceIT {
             }
             assertEquals("completed", job.status(), job.error());
             assertTrue(Files.isRegularFile(Path.of(job.result().path("mask_path").asText())));
-            assertTrue(job.result().path("statistics").path("flood_pixels").asLong() > 0);
+            assertTrue(Files.isRegularFile(Path.of(job.result().path("preview_path").asText())));
+            var statistics = job.result().path("statistics");
+            assertEquals(health.backend(), statistics.path("backend").asText());
+            long total = statistics.path("total_pixels").asLong();
+            long flooded = statistics.path("flood_pixels").asLong();
+            assertTrue(total > 0 && flooded >= 0 && flooded <= total);
         }
     }
 }

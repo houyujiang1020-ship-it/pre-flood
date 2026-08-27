@@ -19,7 +19,7 @@ public final class FloodInferenceCommand implements ICommand {
         if (stage == null) {
             stage = new Stage();
             stage.setTitle("MapGIS-FloodGuard · 洪涝智能识别");
-            FloodMainPanel panel = new FloodMainPanel();
+            FloodMainPanel panel = new FloodMainPanel(application);
             stage.setScene(new Scene(panel, 820, 660));
             stage.setOnHidden(event -> { panel.close(); stage = null; });
         }

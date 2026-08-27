@@ -1,5 +1,15 @@
 # 测试报告
 
+## 2026-08-27 17:54 — 启停、跨进程模型与开发包
+
+- 最新开发包 `release/MapGIS-FloodGuard-development-20260827-175613.zip`：129个文件SHA256全部一致、ZIP CRC检查通过；不含.lic、DLL、虚拟环境、application.local.yaml。使用开发机解释器从包目录加载模型，health返回cuda/siamunet-smoke/production_checkpoint_loaded=false。不是全新机器环境安装测试。
+
+- run_model_e2e.ps1：Java17调用独立Uvicorn/CUDA真实烟测权重，1项通过，校验模型后端/设备/掩膜/预览/统计；停止后18767无监听。
+- start_demo.ps1 -Port 18768：AI正常，MapGIS云授权失败，脚本正确报错并清理两个进程树，state.processes为空，端口无监听。该项是失败路径测试通过，不是完整Demo通过。
+- 训练unittest4项通过：真实配对划分、禁止泄漏、空监督拒绝、有限梯度。
+- build_release.ps1调用联合回归：AI6、脚本10、Java17核心10、fallback跨进程HTTP1、Java21 SDK10，0失败。生成开发目录与ZIP（不是参赛成品）。
+- SDK新增网标时首次编译发现FlagType.nodeType与BarrierType.nodType命名不同，查本机Javadoc修正后18个源文件编译通过。
+
 ## 2026-08-27 — 官方样本、GPU 训练与可选模型后端
 
 - download_data.ps1 -Mode sample：最初2组、后扩展6组，共19个官方对象校验通过。

@@ -2,6 +2,7 @@ package com.mapgis.floodguard.mapgis;
 
 import com.mapgis.floodguard.ai.AiServiceClient;
 import com.mapgis.floodguard.ai.JobResponse;
+import com.zondy.mapgis.pluginengine.IApplication;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,8 +29,12 @@ public final class FloodMainPanel extends VBox implements AutoCloseable {
     private final TextArea result = new TextArea();
     private final ImageView preview = new ImageView();
     private Task<JobResponse> task;
+    private final IApplication application;
+    private final Button loadMap = new Button("空间化并加载 MapGIS");
+    private Path completedMask, completedReference;
 
-    public FloodMainPanel() {
+    public FloodMainPanel(IApplication application) {
+        this.application = application;
         setPadding(new Insets(18)); setSpacing(10);
         Label heading = new Label("洪涝智能识别与结果检查");
         heading.setStyle("-fx-font-size: 22px; -fx-font-weight: bold;");
@@ -43,13 +48,14 @@ public final class FloodMainPanel extends VBox implements AutoCloseable {
         GridPane.setHgrow(service, Priority.ALWAYS);
         cancel.setDisable(true); start.setOnAction(event -> run());
         cancel.setOnAction(event -> { if (task != null) task.cancel(true); });
+        loadMap.setDisable(true); loadMap.setOnAction(event -> loadSpatialResult());
         progress.setMaxWidth(Double.MAX_VALUE);
         result.setEditable(false); result.setWrapText(true); result.setPrefRowCount(8);
         preview.setFitWidth(270); preview.setFitHeight(270); preview.setPreserveRatio(true);
         HBox results = new HBox(12, result, preview); HBox.setHgrow(result, Priority.ALWAYS);
-        Label mapStatus = new Label("地图空间化：待 MapGIS 授权及空间参考验证。未配准 PNG 不会自动作为地理图层加载。");
+        Label mapStatus = new Label("空间化以本次灾前影像为参考，只接受同尺寸北向上网格。须先确认两期影像已在 MapGIS 配准；尚待授权后的现场验证。");
         mapStatus.setWrapText(true);
-        getChildren().addAll(heading, warning, inputs, new HBox(10, start, cancel), progress, status, results, mapStatus);
+        getChildren().addAll(heading, warning, inputs, new HBox(10, start, cancel, loadMap), progress, status, results, mapStatus);
     }
 
     private void addPath(GridPane grid, int row, String label, TextField field, boolean directory) {
@@ -102,12 +108,14 @@ public final class FloodMainPanel extends VBox implements AutoCloseable {
                 return null;
             }
         };
-        result.clear(); preview.setImage(null); start.setDisable(true); cancel.setDisable(false);
+        result.clear(); preview.setImage(null); start.setDisable(true); cancel.setDisable(false); loadMap.setDisable(true);
         status.textProperty().bind(task.messageProperty()); progress.progressProperty().bind(task.progressProperty());
         task.setOnSucceeded(event -> {
             finish("识别完成；下方为原始像素统计，非 GIS 灾损结论");
             var data = task.getValue().result(); result.setText(data.toPrettyString());
             try {
+                completedMask = Path.of(data.path("mask_path").asText()); completedReference = before;
+                loadMap.setDisable(!Files.isRegularFile(completedMask));
                 Path image = Path.of(data.path("preview_path").asText());
                 if (Files.isRegularFile(image)) preview.setImage(new Image(image.toUri().toString(), true));
             } catch (RuntimeException error) { status.setText("结果已生成，预览失败：" + error.getMessage()); }
@@ -120,6 +128,16 @@ public final class FloodMainPanel extends VBox implements AutoCloseable {
     private void finish(String message) {
         status.textProperty().unbind(); progress.progressProperty().unbind();
         start.setDisable(false); cancel.setDisable(true); status.setText(message);
+    }
+    private void loadSpatialResult() {
+        try {
+            Path outputTiff = completedMask.resolveSibling("flood-georeferenced-" + System.currentTimeMillis() + ".tif");
+            Path georeferenced = new MapGisRasterSpatializer().spatialize(completedMask, completedReference, outputTiff);
+            new MapGisResultLayerLoader().load(application, georeferenced, "受淹要素（模型结果，待核验）");
+            status.setText("MapGIS 已加载空间化结果；仍须检查坐标、范围和实际位置");
+        } catch (Exception | LinkageError error) {
+            status.setText("空间化/加载失败：" + error.getMessage());
+        }
     }
     @Override public void close() { if (task != null) task.cancel(true); }
 }

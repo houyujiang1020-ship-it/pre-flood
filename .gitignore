@@ -17,6 +17,7 @@ models/pretrained/**
 models/checkpoints/**
 models/exports/**
 release/**
+runtime/
 config/application.local.yaml
 *.log
 upstream/
