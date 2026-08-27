@@ -28,7 +28,7 @@ public final class AiServiceClient {
     }
 
     public HealthResponse health() throws IOException, InterruptedException {
-        return sendJson(HttpRequest.newBuilder(baseUri.resolve("health")).GET().build(), HealthResponse.class);
+        return sendJson(HttpRequest.newBuilder(baseUri.resolve("health")).timeout(Duration.ofSeconds(15)).GET().build(), HealthResponse.class);
     }
 
     public JobResponse submit(Path pre, Path post, Path output) throws IOException, InterruptedException {
@@ -37,6 +37,7 @@ public final class AiServiceClient {
                 post.toAbsolutePath().normalize().toString(),
                 output.toAbsolutePath().normalize().toString()));
         var request = HttpRequest.newBuilder(baseUri.resolve("inference/flood"))
+                .timeout(Duration.ofSeconds(30))
                 .header("Content-Type", "application/json; charset=UTF-8")
                 .POST(HttpRequest.BodyPublishers.ofString(body, StandardCharsets.UTF_8))
                 .build();
@@ -44,7 +45,8 @@ public final class AiServiceClient {
     }
 
     public JobResponse job(String jobId) throws IOException, InterruptedException {
-        return sendJson(HttpRequest.newBuilder(baseUri.resolve("jobs/" + jobId)).GET().build(), JobResponse.class);
+        if (jobId == null || !jobId.matches("[A-Za-z0-9_-]+")) throw new IllegalArgumentException("Invalid job ID");
+        return sendJson(HttpRequest.newBuilder(baseUri.resolve("jobs/" + jobId)).timeout(Duration.ofSeconds(15)).GET().build(), JobResponse.class);
     }
 
     private <T> T sendJson(HttpRequest request, Class<T> type) throws IOException, InterruptedException {

@@ -2,7 +2,7 @@
 
 更新时间：2026-08-27
 
-新增资源推荐业务核心（类型/容量/可达性过滤、时间排序）及输入校验已通过自动测试；尚未接入 MapGIS 网络分析与桌面面板，产品项保持未完成。
+本轮已跑通官方样本 GPU 烟测训练、checkpoint 保存/重载和 PyTorch API 推理；IoU=0，绝不代表可用精度。模型/像素结果与 GIS 业务验收分开记录。
 
 ## Environment
 - [x] 环境检查脚本可运行
@@ -16,14 +16,19 @@
 - [ ] 上游许可证与依赖已审计
 
 ## AI
-- [ ] SpaceNet8 最小真实推理
+- [x] 官方 SpaceNet8 配对样本下载校验
+- [x] 官方 SiamUnet 架构 GPU 烟测训练及重载
+- [x] SpaceNet8 最小真实模型 API 推理（烟测权重）
+- [ ] 模型精度验证及完整数据训练
 - [x] FastAPI health
 - [x] FastAPI inference
 - [x] CLI predict
 - [x] AI Service 自动测试
 
 ## MapGIS
-- [x] Desktop 工程构建
+- [x] 洪涝插件基于已安装 SDK 编译打包
+- [ ] 上游完整 Desktop 工程构建（旧源码 JavaFX 兼容问题未完成）
+- [x] 影像选择/进度/取消等待面板编译
 - [ ] 洪涝插件加载
 - [x] Java 调用 AI 服务
 - [ ] AI 结果加载至 MapGIS

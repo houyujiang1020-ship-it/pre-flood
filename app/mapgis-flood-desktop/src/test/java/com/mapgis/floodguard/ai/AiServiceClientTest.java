@@ -33,6 +33,17 @@ class AiServiceClientTest {
 
     @AfterEach void stop() { server.stop(0); }
 
+    @Test void rejectsMalformedJobIdBeforeRequest() {
+        assertThrows(IllegalArgumentException.class, () -> client.job("../health"));
+        assertThrows(IllegalArgumentException.class, () -> client.job("abc?x=1"));
+        assertThrows(IllegalArgumentException.class, () -> client.job(null));
+    }
+
+    @Test void exposesHttpFailure() {
+        AiServiceException error = assertThrows(AiServiceException.class, () -> client.job("missing"));
+        assertNotNull(error.getMessage());
+    }
+
     @Test void healthAndJobsDeserialize() throws Exception {
         assertEquals("ok", client.health().status());
         assertEquals("abc", client.submit(Path.of("灾前.png"), Path.of("灾后.png"), Path.of("输出")).job_id());

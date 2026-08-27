@@ -1,0 +1,6 @@
+# Research-only environment: never install into the final AI service environment.
+numpy==1.26.4
+Pillow==11.3.0
+rasterio==1.4.3
+# Install separately from https://download.pytorch.org/whl/cu121
+torch==2.5.1+cu121

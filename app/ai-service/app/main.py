@@ -4,32 +4,44 @@ from . import __version__
 from .inference import MODEL_NAME, MODEL_VERSION
 from .jobs import jobs
 from .schemas import InferenceRequest, JobResponse
+from .settings import settings
 
 app = FastAPI(title="MapGIS-FloodGuard AI Service", version=__version__)
 
 
 @app.get("/health")
 def health() -> dict[str, object]:
+    try:
+        config = settings()
+        device = 'cpu'
+        if config.backend == 'siamunet-smoke':
+            from .torch_backend import model_state
+            _, device = model_state()
+    except Exception as error:
+        raise HTTPException(status_code=503, detail=f'Model unavailable: {type(error).__name__}: {error}') from error
     return {
         "status": "ok",
         "model_loaded": True,
-        "device": "cpu",
-        "backend": MODEL_NAME,
+        "device": device,
+        "backend": config.backend,
         "production_checkpoint_loaded": False,
     }
 
 
 @app.get("/model/info")
 def model_info() -> dict[str, object]:
+    state = health()
     return {
-        "name": MODEL_NAME,
+        "name": state['backend'],
         "version": MODEL_VERSION,
-        "device": "cpu",
+        "device": state['device'],
         "classes": [
             "Flood Mask", "Flooded Building", "Non-Flooded Building",
             "Flooded Road", "Non-Flooded Road",
         ],
-        "is_spacenet8_checkpoint": False,
+        "is_spacenet8_checkpoint": state['backend'] == 'siamunet-smoke',
+        "production_ready": False,
+        "warning": "Smoke/fallback backend only; not validated for operational decisions.",
     }
 
 

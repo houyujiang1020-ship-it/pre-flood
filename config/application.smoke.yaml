@@ -1,0 +1,6 @@
+ai:
+  backend: siamunet-smoke
+  device: cuda
+  checkpoint: models/checkpoints/spacenet8-smoke/smoke_model.pth
+  architecture_source: upstream/SpaceNet8/baseline/models/other/siamunetdif.py
+  image_size: 128

@@ -38,6 +38,10 @@ def _edge_mask(gray: np.ndarray) -> np.ndarray:
 
 
 def predict(pre_path: Path, post_path: Path, output_dir: Path) -> JobResult:
+    from .settings import settings
+    if settings().backend == 'siamunet-smoke':
+        from .torch_backend import predict as torch_predict
+        return torch_predict(pre_path, post_path, output_dir)
     started = time.perf_counter()
     pre = _read_rgb(pre_path)
     post = _read_rgb(post_path)

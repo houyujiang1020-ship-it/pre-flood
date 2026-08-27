@@ -52,6 +52,18 @@
       </plugin></plugins></build>
       <dependencies>
         <dependency>
+          <groupId>com.zondy.mapgis</groupId><artifactId>geoobjects</artifactId><version>10-local</version><scope>system</scope>
+          <systemPath>${mapgis.home}/mapgis_geoobjects.jar</systemPath>
+        </dependency>
+        <dependency>
+          <groupId>com.zondy.mapgis</groupId><artifactId>geodatabase</artifactId><version>10-local</version><scope>system</scope>
+          <systemPath>${mapgis.home}/mapgis_geodatabase.jar</systemPath>
+        </dependency>
+        <dependency>
+          <groupId>com.zondy.mapgis</groupId><artifactId>geoanalysis</artifactId><version>10-local</version><scope>system</scope>
+          <systemPath>${mapgis.home}/mapgis_geoanalysis.jar</systemPath>
+        </dependency>
+        <dependency>
           <groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version>
         </dependency>
         <dependency>

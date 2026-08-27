@@ -15,6 +15,9 @@ try {
     Pop-Location
 }
 
+& $python -m pytest (Join-Path $projectRoot 'tests') -q
+if ($LASTEXITCODE -ne 0) { throw 'Repository script tests failed.' }
+
 & (Join-Path $projectRoot 'scripts\setup_java.ps1') | Out-Host
 Push-Location -LiteralPath (Join-Path $projectRoot 'app\mapgis-flood-desktop')
 try {

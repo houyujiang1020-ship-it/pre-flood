@@ -1,5 +1,14 @@
 # 测试报告
 
+## 2026-08-27 — 官方样本、GPU 训练与可选模型后端
+
+- download_data.ps1 -Mode sample：最初2组、后扩展6组，共19个官方对象校验通过。
+- train_smoke.ps1：RTX4050 / torch2.5.1+cu121，2epochs，保存并重载 checkpoint。验证 IoU=0；只通过链路测试，不通过模型精度验收。
+- `.venv\Scripts\python.exe tests\integration\verify_torch_smoke.py`：真实 checkpoint + CUDA + 官方验证影像配准后的像素夹具，经 FastAPI TestClient 提交任务，完成并生成5类掩膜/预览；production_checkpoint_loaded=false。不是实际 MapGIS E2E。
+- 17:38 联合回归 run_tests.ps1：AI6、脚本5、Java17核心10、跨进程HTTP1、Java21 SDK配置10，均0失败。
+- verify_mapgis_host.ps1：实际返回 authorization_failed、退出码3，准确捕获原生 GBK 授权失败。该项未通过，绝不计入成功数。
+- 修复根目录直接运行 pytest 找不到 app.main：新增 ai-service/pytest.ini，重跑6项通过。
+
 ## 2026-08-27 — 资源推荐回归
 
 - 命令：`.\scripts\run_tests.ps1`，退出码 0。

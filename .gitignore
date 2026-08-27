@@ -1,4 +1,5 @@
 .venv/
+.venv-training/
 venv/
 __pycache__/
 *.py[cod]
@@ -20,6 +21,7 @@ config/application.local.yaml
 *.log
 upstream/
 tools/*.zip
+tools/wheels/
 tools/*.sha512
 tools/apache-maven-*/
 tools/jdk-*/
