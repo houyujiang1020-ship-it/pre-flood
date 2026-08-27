@@ -1,5 +1,12 @@
 # 测试报告
 
+## 2026-08-27 — 资源推荐回归
+
+- 命令：`.\scripts\run_tests.ps1`，退出码 0。
+- Python 3 passed；Java 17 核心 8 passed；真实 HTTP 集成 1 passed；MapGIS Java 21 构建 8 passed并产出插件 JAR。
+- 新增测试验证资源容量/类型/不可达过滤及时间排序、道路非法输入和 NaN 灾损面积拒绝。
+- MapGIS 可视化、空间分析和官方模型仍未完成，以上结果不代表完整参赛 E2E。
+
 ## 2026-08-23 — AI Service
 
 - 命令：`.\scripts\run_tests.ps1`

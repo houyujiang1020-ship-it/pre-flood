@@ -1,6 +1,13 @@
 package com.mapgis.floodguard.business;
 
 public record RoadEdge(String id, String from, String to, double distanceKm, double speedKph, FloodLevel floodLevel) {
+    public RoadEdge {
+        if (id == null || id.isBlank() || from == null || from.isBlank() || to == null || to.isBlank()
+                || floodLevel == null || !Double.isFinite(distanceKm) || distanceKm < 0
+                || !Double.isFinite(speedKph) || speedKph <= 0) {
+            throw new IllegalArgumentException("Road requires identifiers, finite nonnegative distance and positive speed");
+        }
+    }
     public enum FloodLevel { NORMAL, LIGHT, SEVERE, IMPASSABLE }
 
     public boolean passable() { return floodLevel != FloodLevel.IMPASSABLE; }
