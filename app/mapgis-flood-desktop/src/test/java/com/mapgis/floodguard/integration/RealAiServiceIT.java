@@ -42,6 +42,11 @@ class RealAiServiceIT {
             long total = statistics.path("total_pixels").asLong();
             long flooded = statistics.path("flood_pixels").asLong();
             assertTrue(total > 0 && flooded >= 0 && flooded <= total);
+            String report = new com.mapgis.floodguard.report.HtmlInferenceReport().render(
+                    "真实 HTTP 推理记录", Path.of(pre), Path.of(post), job.result());
+            Path reportPath = Path.of(job.result().path("mask_path").asText()).resolveSibling("识别记录.html");
+            Files.writeString(reportPath, report, java.nio.charset.StandardCharsets.UTF_8, java.nio.file.StandardOpenOption.CREATE_NEW);
+            assertTrue(Files.readString(reportPath).contains("data:image/png;base64,"));
         }
     }
 }

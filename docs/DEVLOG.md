@@ -1,5 +1,11 @@
 # 开发日志
 
+## 2026-08-27 20:15 — 真实识别记录与风险校验
+
+- HtmlInferenceReport从真实任务返回生成HTML，内嵌PNG、实际像素统计、输入路径和原始证据；明确不是完整GIS灾情报告。新增桌面导出按钮，拒绝覆盖已有文件、非PNG预览、不一致像素数，并转义文本。
+- 修复RiskCalculator允许NaN、负权重和缺失指标默认为零的问题；未知指标现在拒绝评分，不再当作低风险。
+- run_tests：AI6/脚本10/Java17核心14/HTTP1/Java21 SDK14全通过；run_model_e2e另行通过，真实CUDA结果生成识别记录。官方授权复测仍返回code3。
+
 ## 2026-08-27 — 插件入口、生命周期和开发包
 
 - 从已安装宿主application.xml生成项目独立XML，增加真实IRibbonPage/IRibbonPageGroup和ICommand。通过官方--custom-ui选项使用，不修改安装目录。空间化按钮调用原生适配器，仍待授权现场核验。

@@ -6,6 +6,10 @@ public final class RiskCalculator {
     public record Weights(double flood, double population, double buildingDamage,
                           double roadAccessibility, double medicalAccessibility) {
         public Weights {
+            for (double value : new double[]{flood, population, buildingDamage, roadAccessibility, medicalAccessibility}) {
+                if (!Double.isFinite(value) || value < 0 || value > 1)
+                    throw new IllegalArgumentException("Risk weights must be finite and between 0 and 1");
+            }
             double sum = flood + population + buildingDamage + roadAccessibility + medicalAccessibility;
             if (Math.abs(sum - 1.0) > 1.0e-9) throw new IllegalArgumentException("Risk weights must sum to 1.0");
         }
@@ -16,7 +20,7 @@ public final class RiskCalculator {
 
     private final Weights weights;
 
-    public RiskCalculator(Weights weights) { this.weights = weights; }
+    public RiskCalculator(Weights weights) { this.weights = java.util.Objects.requireNonNull(weights); }
 
     public double score(Map<String, Double> indicators) {
         double score = weights.flood * value(indicators, "flood")
@@ -28,6 +32,7 @@ public final class RiskCalculator {
     }
 
     public Level level(double score) {
+        if (!Double.isFinite(score) || score < 0 || score > 1) throw new IllegalArgumentException("Invalid risk score");
         if (score < 0.25) return Level.LOW;
         if (score < 0.50) return Level.MEDIUM;
         if (score < 0.75) return Level.HIGH;
@@ -35,8 +40,10 @@ public final class RiskCalculator {
     }
 
     private static double value(Map<String, Double> indicators, String name) {
-        double value = indicators.getOrDefault(name, 0.0);
-        if (value < 0 || value > 1) throw new IllegalArgumentException(name + " must be between 0 and 1");
+        if (indicators == null || indicators.get(name) == null)
+            throw new IllegalArgumentException("Missing risk indicator: " + name);
+        double value = indicators.get(name);
+        if (!Double.isFinite(value) || value < 0 || value > 1) throw new IllegalArgumentException(name + " must be between 0 and 1");
         return value;
     }
 }

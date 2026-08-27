@@ -32,6 +32,9 @@ public final class FloodMainPanel extends VBox implements AutoCloseable {
     private final IApplication application;
     private final Button loadMap = new Button("空间化并加载 MapGIS");
     private Path completedMask, completedReference;
+    private Path completedPost;
+    private com.fasterxml.jackson.databind.JsonNode completedResult;
+    private final Button exportReport = new Button("导出识别记录");
 
     public FloodMainPanel(IApplication application) {
         this.application = application;
@@ -49,13 +52,14 @@ public final class FloodMainPanel extends VBox implements AutoCloseable {
         cancel.setDisable(true); start.setOnAction(event -> run());
         cancel.setOnAction(event -> { if (task != null) task.cancel(true); });
         loadMap.setDisable(true); loadMap.setOnAction(event -> loadSpatialResult());
+        exportReport.setDisable(true); exportReport.setOnAction(event -> exportInferenceReport());
         progress.setMaxWidth(Double.MAX_VALUE);
         result.setEditable(false); result.setWrapText(true); result.setPrefRowCount(8);
         preview.setFitWidth(270); preview.setFitHeight(270); preview.setPreserveRatio(true);
         HBox results = new HBox(12, result, preview); HBox.setHgrow(result, Priority.ALWAYS);
         Label mapStatus = new Label("空间化以本次灾前影像为参考，只接受同尺寸北向上网格。须先确认两期影像已在 MapGIS 配准；尚待授权后的现场验证。");
         mapStatus.setWrapText(true);
-        getChildren().addAll(heading, warning, inputs, new HBox(10, start, cancel, loadMap), progress, status, results, mapStatus);
+        getChildren().addAll(heading, warning, inputs, new HBox(10, start, cancel, loadMap, exportReport), progress, status, results, mapStatus);
     }
 
     private void addPath(GridPane grid, int row, String label, TextField field, boolean directory) {
@@ -109,12 +113,15 @@ public final class FloodMainPanel extends VBox implements AutoCloseable {
             }
         };
         result.clear(); preview.setImage(null); start.setDisable(true); cancel.setDisable(false); loadMap.setDisable(true);
+        exportReport.setDisable(true);
         status.textProperty().bind(task.messageProperty()); progress.progressProperty().bind(task.progressProperty());
         task.setOnSucceeded(event -> {
             finish("识别完成；下方为原始像素统计，非 GIS 灾损结论");
             var data = task.getValue().result(); result.setText(data.toPrettyString());
+            completedResult = data.deepCopy(); completedPost = after;
             try {
                 completedMask = Path.of(data.path("mask_path").asText()); completedReference = before;
+                exportReport.setDisable(false);
                 loadMap.setDisable(!Files.isRegularFile(completedMask));
                 Path image = Path.of(data.path("preview_path").asText());
                 if (Files.isRegularFile(image)) preview.setImage(new Image(image.toUri().toString(), true));
@@ -138,6 +145,18 @@ public final class FloodMainPanel extends VBox implements AutoCloseable {
         } catch (Exception | LinkageError error) {
             status.setText("空间化/加载失败：" + error.getMessage());
         }
+    }
+    private void exportInferenceReport() {
+        FileChooser chooser = new FileChooser(); chooser.setTitle("保存模型识别记录（非 GIS 灾情报告）");
+        chooser.setInitialFileName("模型识别记录-" + System.currentTimeMillis() + ".html");
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML", "*.html"));
+        java.io.File file = chooser.showSaveDialog(getScene().getWindow());
+        if (file == null) return;
+        try {
+            String html = new com.mapgis.floodguard.report.HtmlInferenceReport().render("洪涝识别", completedReference, completedPost, completedResult);
+            Files.writeString(file.toPath(), html, java.nio.charset.StandardCharsets.UTF_8, java.nio.file.StandardOpenOption.CREATE_NEW);
+            status.setText("已导出实际模型结果：" + file.getAbsolutePath());
+        } catch (Exception error) { status.setText("导出失败（不会覆盖已有文件）：" + error.getMessage()); }
     }
     @Override public void close() { if (task != null) task.cancel(true); }
 }

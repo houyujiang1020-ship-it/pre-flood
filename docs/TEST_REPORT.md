@@ -1,5 +1,12 @@
 # 测试报告
 
+## 2026-08-27 20:15 — 模型记录导出
+
+- run_tests.ps1：AI6、脚本10、Java17核心14、fallback跨进程1、Java21 SDK14，0失败。
+- run_model_e2e.ps1：真实CUDA跨进程1项通过，生成data/outputs/model-http/58804b99497a4d049d483f75596afa34/识别记录.html（17137字节），含真实PNG内嵌预览。
+- 报告测试覆盖HTML转义、缺失/超范围像素计数、拒绝伪装PNG的HTML；风险测试覆盖NaN、无穷、负权重、缺失指标。
+- verify_mapgis_host.ps1：authorization_failed/code3，未通过；没有把GIS原生联调标成功。
+
 ## 2026-08-27 17:54 — 启停、跨进程模型与开发包
 
 - 最新开发包 `release/MapGIS-FloodGuard-development-20260827-175613.zip`：129个文件SHA256全部一致、ZIP CRC检查通过；不含.lic、DLL、虚拟环境、application.local.yaml。使用开发机解释器从包目录加载模型，health返回cuda/siamunet-smoke/production_checkpoint_loaded=false。不是全新机器环境安装测试。
