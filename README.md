@@ -1,6 +1,6 @@
 # MapGIS-FloodGuard 洪涝灾害智能分析与应急决策平台
 
-> 仓库导航与数据准备说明见 [GitHub 仓库整理说明](docs/GITHUB_REPOSITORY.md)。训练数据、模型权重、实验输出和本机工具不纳入源码仓库。
+> [训练数据下载与准备](docs/DATASET.md) · [模型权重说明](docs/AI_MODEL.md) · [仓库导航](docs/GITHUB_REPOSITORY.md)
 
 本项目使用 Java + MapGIS SDK 构建桌面 GIS 工作台，以 FastAPI/PyTorch 提供遥感洪水检测服务。MapGIS `MapControl`、原生要素类、空间叠加、专题符号、网络分析和空间资源库承担 GIS 核心功能。演练输出是模拟或待核验结果，不能直接用于实际应急指挥。
 

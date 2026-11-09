@@ -1,6 +1,18 @@
-# SpaceNet8 数据
+# 训练数据下载与准备
 
-来源：[SpaceNet8 官方页面](https://spacenet.ai/sn8-challenge/)，公共 S3 `spacenet-dataset/spacenet/SN8_floods/`。数据许可 CC-BY-SA-4.0，代码许可单独记录。
+本项目以 SpaceNet 8 的灾前和灾后卫星影像及建筑、道路洪水标签为主要训练数据。数据采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)，来源和区域划分见 [SpaceNet 8 官方挑战页](https://spacenet.ai/sn8-challenge/)。
+
+| 区域 | 用途 | 官方下载 |
+| --- | --- | --- |
+| Germany | 有标注训练集 | [Germany_Training_Public.tar.gz](https://spacenet-dataset.s3.amazonaws.com/spacenet/SN8_floods/tarballs/Germany_Training_Public.tar.gz) |
+| Louisiana East | 有标注训练集 | [Louisiana-East_Training_Public.tar.gz](https://spacenet-dataset.s3.amazonaws.com/spacenet/SN8_floods/tarballs/Louisiana-East_Training_Public.tar.gz) |
+| Louisiana West | 官方测试集，公开包无标签 | [Louisiana-West_Test_Public.tar.gz](https://spacenet-dataset.s3.amazonaws.com/spacenet/SN8_floods/tarballs/Louisiana-West_Test_Public.tar.gz) |
+
+从浏览器手动下载时，可将训练归档放在 `data/spacenet8/archives/`。测试包单独保存，训练和调参时只使用有标注训练区的适当划分。FloodNet 等辅助研究数据的原始入口见 [数据来源目录](PUBLIC_FLOOD_DATASET_CATALOG_20260916.md)。
+
+## 使用项目脚本下载
+
+在 Windows PowerShell 中进入仓库根目录。首次运行先执行 `.\scripts\setup_python.ps1` 创建下载脚本使用的 Python 环境。
 
 2026-08-27 下载 Germany_Training_Public 映射表及前两组配对影像和 GeoJSON 标注，共 7 个对象。URL、字节数、本地 SHA256 按 AOI 记录在 `data/spacenet8/sample-<AOI>-manifest.json`；兼容路径 `sample-manifest.json` 只保存德国清单。该 hash 是本地完整性记录，不是官方签名。
 

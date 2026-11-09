@@ -1,10 +1,26 @@
-# 模型与训练
+# 模型权重与训练
 
-默认服务 spectral-change-fallback 为变化检测，不是神经网络 checkpoint；production_checkpoint_loaded=false。像素统计不能当建筑栋数、路段数或平方公里。
+仓库提供模型代码、配置和训练流程。权重文件在本机保存，不随仓库发布。下表列出服务支持的三种配置及所需的本地权重。
+
+| 后端 | 权重与用途 | 配置 |
+| --- | --- | --- |
+| `spectral-change-fallback` | 默认影像变化检测，运行时无需模型权重 | [AI 服务说明](../app/ai-service/README.md) |
+| `siamunet-smoke` | 从样本本地训练，生成 `models/checkpoints/spacenet8-smoke/smoke_model.pth`，用于验证训练和推理流程 | [application.smoke.yaml](../config/application.smoke.yaml) |
+| `e4-research` | E4 固定研究检查点，路径为 `models/experiments/germany-louisiana-foundation-initialized-four-class-20260926/best_model.pth` | [application.e4-research.yaml](../config/application.e4-research.yaml) |
+
+E4 的 SHA-256 为 `ba2da68622d79683de2b6a9c30209c509d21cc44c1693e9118a061616c93e4bc`。服务校验该哈希，重新训练的候选需要按其自身身份评估。E4 缺少独立外部精度验证，目前是研究模型。像素统计不能当作建筑栋数、路段数或平方公里。[E4 研究与复现流程](MODEL_ACCURACY_PIPELINE.md)
+
+## 在本机生成烟测权重
 
 研究烟测 app/training/train_smoke.py 使用锁定上游 SiamUnet_diff、真实配对和4通道标签，按地理网格配准，忽略未知 flooded；至少两组完整数据，最后一组仅验证。默认128×128、batch1、2epochs，CUDA 可用则自动启用，也可传 --device cuda 禁止静默回落 CPU。
 
+在仓库根目录执行以下命令。已有上游工作树时，按 [上游版本说明](UPSTREAM_LOCK.md) 核对提交即可。
+
 ```powershell
+.\scripts\setup_python.ps1
+.\scripts\setup_torch.ps1 -Environment Training
+git clone https://github.com/SpaceNetChallenge/SpaceNet8.git upstream/SpaceNet8
+git -C upstream/SpaceNet8 checkout 30ca30c2530c6a234d040f60a99a7366ff62d756
 .\scripts\download_data.ps1 -Mode sample -Count 2
 .\scripts\train_smoke.ps1
 ```
