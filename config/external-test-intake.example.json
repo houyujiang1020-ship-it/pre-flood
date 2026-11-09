@@ -1,0 +1,30 @@
+{
+  "dataset_name": "REPLACE_WITH_DATASET_NAME",
+  "publisher": "REPLACE_WITH_PUBLISHER",
+  "source_url": "https://REPLACE_WITH_ORIGINAL_SOURCE",
+  "license_name": "REPLACE_WITH_LICENSE",
+  "license_url": "https://REPLACE_WITH_LICENSE_TEXT",
+  "region_id": "REPLACE_WITH_INDEPENDENT_REGION",
+  "event_id": "REPLACE_WITH_EVENT",
+  "event_date": "REPLACE_WITH_EVENT_DATE",
+  "downloaded_at": "REPLACE_WITH_ISO_8601_TIME",
+  "source_evidence_path": "C:\\REPLACE_WITH_SAVED_SOURCE_PAGE_OR_README",
+  "license_evidence_path": "C:\\REPLACE_WITH_SAVED_LICENSE_TEXT",
+  "dataset_root": "C:\\REPLACE_WITH_DOWNLOADED_TEST_ROOT",
+  "areas": [
+    "REPLACE_WITH_SPACENET8_STYLE_AREA_DIRECTORY"
+  ],
+  "post_event_column": "post-event image 1",
+  "labels_available": true,
+  "purpose": "independent_model_accuracy",
+  "checkpoints": {
+    "candidate": {
+      "model_id": "germany-louisiana-foundation-initialized-four-class-20260926",
+      "path": "models/experiments/germany-louisiana-foundation-initialized-four-class-20260926/best_model.pth"
+    },
+    "baseline": {
+      "model_id": "germany-louisiana-domain-balanced-20260926",
+      "path": "models/experiments/germany-louisiana-domain-balanced-20260926/best_model.pth"
+    }
+  }
+}

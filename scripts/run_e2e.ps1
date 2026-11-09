@@ -29,7 +29,7 @@ try {
     & (Join-Path $projectRoot 'scripts\setup_java.ps1') | Out-Host
     Push-Location -LiteralPath (Join-Path $projectRoot 'app\mapgis-flood-desktop')
     try {
-        mvn '-Dtest=RealAiServiceIT' "-Dai.url=http://127.0.0.1:$Port" "-Ddemo.pre=$(Join-Path $demoRoot '灾前演示.png')" "-Ddemo.post=$(Join-Path $demoRoot '灾后演示.png')" "-Ddemo.output=$outputRoot" test
+        mvn '-Dfloodguard.build.directory=target-core-tests' '-Dtest=RealAiServiceIT' "-Dai.url=http://127.0.0.1:$Port" "-Ddemo.pre=$(Join-Path $demoRoot 'pre_demo.png')" "-Ddemo.post=$(Join-Path $demoRoot 'post_demo.png')" "-Ddemo.output=$outputRoot" test
         if ($LASTEXITCODE -ne 0) { throw "E2E test failed with exit code $LASTEXITCODE" }
     } finally { Pop-Location }
 } finally {

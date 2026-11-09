@@ -14,7 +14,7 @@ def health() -> dict[str, object]:
     try:
         config = settings()
         device = 'cpu'
-        if config.backend == 'siamunet-smoke':
+        if config.backend in ('siamunet-smoke', 'e4-research'):
             from .torch_backend import model_state
             _, device = model_state()
     except Exception as error:
@@ -31,17 +31,30 @@ def health() -> dict[str, object]:
 @app.get("/model/info")
 def model_info() -> dict[str, object]:
     state = health()
+    version = MODEL_VERSION
+    if state['backend'] in ('siamunet-smoke', 'e4-research'):
+        from .torch_backend import model_state
+        model, _ = model_state()
+        version = model.floodguard_version
+        metadata = model.floodguard_metadata
+    else:
+        metadata = {
+            'model_id': version, 'architecture': state['backend'], 'normalization': None,
+            'checkpoint_sha256': None, 'production_ready': False, 'thresholds': {},
+            'trained_at': None, 'metrics_file': None, 'training_run_id': None,
+            'git_commit': None, 'dataset_split_hash': None,
+        }
     return {
         "name": state['backend'],
-        "version": MODEL_VERSION,
+        "version": version,
         "device": state['device'],
         "classes": [
             "Flood Mask", "Flooded Building", "Non-Flooded Building",
             "Flooded Road", "Non-Flooded Road",
         ],
-        "is_spacenet8_checkpoint": state['backend'] == 'siamunet-smoke',
-        "production_ready": False,
-        "warning": "Smoke/fallback backend only; not validated for operational decisions.",
+        "is_spacenet8_checkpoint": state['backend'] in ('siamunet-smoke', 'e4-research'),
+        **metadata,
+        "warning": "Research/fallback backend; no independent operational validation or GIS object bridge.",
     }
 
 

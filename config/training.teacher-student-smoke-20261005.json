@@ -1,0 +1,27 @@
+{
+  "seed": 20261005,
+  "steps_per_epoch": 1,
+  "strong_brightness": 0.1,
+  "unsupervised_weight": 0.1,
+  "consistency_weight": 0.1,
+  "amp": true,
+  "supervised_config": "config/training.foundation-initialized-four-class-20260926.json",
+  "model_id": "e4-teacher-student-synthetic-smoke-20261005",
+  "strong_contrast": 0.1,
+  "output_dir": "models/experiments/e4-teacher-student-synthetic-smoke-20261005",
+  "class_aware_crop": {
+    "weights": {
+      "flooded_road": 0.4,
+      "flooded_building": 0.25,
+      "normal_object": 0.2,
+      "background": 0.15
+    },
+    "size": 256
+  },
+  "epochs": 1,
+  "ema_decay": 0.99,
+  "initial_checkpoint": "models/experiments/germany-louisiana-foundation-initialized-four-class-20260926/best_model.pth",
+  "pseudo_manifest": "experiments/accuracy-pipeline-20261005/pseudo-smoke-512/pseudo_label_stats.json",
+  "learning_rate": 1E-05,
+  "supervised_dice_weight": 0.5
+}

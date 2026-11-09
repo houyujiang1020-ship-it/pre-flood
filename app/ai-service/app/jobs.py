@@ -3,6 +3,7 @@ import traceback
 import uuid
 
 from .inference import predict
+from .contract import write_contract
 from .schemas import InferenceRequest, JobResponse
 
 
@@ -28,6 +29,7 @@ class JobStore:
             self._jobs[job_id] = JobResponse(job_id=job_id, status="running", progress=10)
         try:
             result = predict(request.pre_image_path, request.post_image_path, request.output_dir / job_id)
+            result = write_contract(job_id, request.pre_image_path, request.post_image_path, result)
             completed = JobResponse(job_id=job_id, status="completed", progress=100, result=result)
             with self._lock:
                 self._jobs[job_id] = completed

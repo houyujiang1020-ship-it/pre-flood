@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[3]
 
 class AiSettings(BaseModel):
     model_config = ConfigDict(extra='ignore')
-    backend: Literal['spectral-change-fallback', 'siamunet-smoke'] = 'spectral-change-fallback'
+    backend: Literal['spectral-change-fallback', 'siamunet-smoke', 'e4-research'] = 'spectral-change-fallback'
     device: Literal['auto', 'cpu', 'cuda'] = 'auto'
     checkpoint: Path = Path('models/checkpoints/spacenet8-smoke/smoke_model.pth')
     architecture_source: Path = Path('upstream/SpaceNet8/baseline/models/other/siamunetdif.py')

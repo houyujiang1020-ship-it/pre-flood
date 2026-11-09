@@ -1,0 +1,19 @@
+schema_version: 1
+method: zensus_2022_100m_grid_building_area_weighted
+source_id: destatis-zensus2022-bevoelkerungszahl-100m
+population_year: 2022
+population_unit: persons_per_100m_cell
+formal_gis_engine: MapGIS
+formula: >-
+  sum(population_cell * AOI_overlap_fraction *
+  affected_building_footprint_area_cell / all_labeled_building_footprint_area_cell)
+assumptions:
+  - Population is uniform within each 100m cell only for AOI-edge allocation.
+  - The affected/all labeled building footprint ratio is a proxy for affected residents within a cell.
+  - Cells without labeled buildings receive zero affected-population allocation.
+limitations:
+  - This is an area-weighted estimate, not an actual affected-resident registry count.
+  - Zensus privacy protection and 100m resolution limit precision.
+  - MapGIS must reproduce cell, AOI, building and community intersections for formal acceptance.
+continuous_flood_area_used: false
+affected_road_as_closed_used: false

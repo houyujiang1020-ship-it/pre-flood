@@ -1,0 +1,26 @@
+{
+  "candidate_type": "development",
+  "models": {
+    "stage1": {
+      "checkpoint": "models/experiments/two-stage/stage1-object/best_model.pth",
+      "sha256": "f9aba1af820485d80d3cad8b8ece06df1bcb89a0bddb56e5b1622e69c4b7c4f9"
+    },
+    "stage2": {
+      "checkpoint": "models/experiments/two-stage/stage2-oracle-status/best_model.pth",
+      "sha256": "7a01cb95d79f41d0ccc4065107be6e521593bb7aa30cd290ba67599ee85741de"
+    }
+  },
+  "germany_split_sha256": "14f57e129972554d64991f956f3e23f29cc947007605e6b052f8b4001ba8e1b1",
+  "source_git_hash": "7eb0e22a9f68042ff08d80765f8b84d85c835e5e",
+  "source_file_sha256": {
+    "app/training/two_stage_feasibility.py": "520012313b776c234deadb3b1cb675b563f638d2c732deef936a5d0d92ff0563",
+    "app/training/model_factory.py": "e982c1167cd7505728fe225d693a4c12dcd4ca56c30ea5e248351a289a6bbf31",
+    "app/training/train_smoke.py": "777eedf704ef637c8d12ff2282c690db9244448770ce8ea45a86036cca361c74",
+    "upstream/SpaceNet8/baseline/models/other/siamunetdif.py": "824650da013ce0e3076ae9f3e909b27f889df45b77699df49c870f0a1c9c6071"
+  },
+  "threshold_lock": "experiments\\two-stage\\predicted-gate-20260912\\threshold-lock.json",
+  "threshold_lock_sha256": "78dcd71b2f366cad958988e91e6cf9f130286e54a25bbf26d18b2396b88694dd",
+  "production_ready": false,
+  "blind_holdout_used": false,
+  "louisiana_used": false
+}

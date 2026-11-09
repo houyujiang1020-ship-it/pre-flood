@@ -1,17 +1,17 @@
 # MapGIS-FloodGuard
 
-《基于 MapGIS 与多源遥感智能解译的城市洪涝灾害态势感知与应急决策系统》。当前处于核心 MVP 建设阶段。
+《基于 MapGIS 与多源遥感智能解译的城市洪涝灾害态势感知与应急决策系统》。当前为开发验证系统，2026-08-30诊断冲刺完成，真实参赛门禁4/9，尚非RC1。
 
 ## 当前完成度
 
-已验证：官方SpaceNet8样本、RTX4050烟测训练与重载、配置训练/恢复、PyTorch/FastAPI推理、Java跨进程调用、MapGIS插件编译、业务层单元测试。
+已验证：801组SpaceNet8数据审计、两轮40epoch研究训练、PyTorch/FastAPI与Java集成、授权宿主原生拓扑/演练阻抗/封路路线/地图显示。新增2/4/8固定patch及空间/类别/分辨率诊断，GN记忆测试通过；它不是独立精度验收。
 
-未完成：MapGIS授权验证、插件现场加载、真实空间叠加/道路匹配/动态阻抗与完整业务GUI、GIS路线和报告E2E。烟测IoU=0，没有可用精度结论。当前是开发验证工程，不是已验收参赛成品。
+未完成：完整灾损及人口社区、合格独立区域模型、production API、真实资源台账及完整原生业务GUI终验。历史研究模型校准macro IoU约7.98%，Louisiana研究集已重复查看，不是盲holdout。最新证据见`docs/AI_PIPELINE_DIAGNOSIS.md`、`docs/FINAL_ACCEPTANCE_REPORT.md`，续跑见`NEXT_TASK.md`。旧DOCX材料尚未随本轮重新生成，不可当作当前正式报告。
 
 ## 环境准备
 
 ```powershell
-Set-Location -LiteralPath 'C:\Users\33076\Desktop\高级开发'
+# 在仓库根目录执行
 .\scripts\check_env.ps1
 .\scripts\setup_python.ps1
 .\scripts\setup_java.ps1

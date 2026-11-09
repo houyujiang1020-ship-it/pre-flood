@@ -2,5 +2,9 @@
 numpy==1.26.4
 Pillow==11.3.0
 rasterio==1.4.3
+shapely==2.1.2
+pyproj==3.7.1
+PyYAML==6.0.2
+pytest==9.1.1
 # Install separately from https://download.pytorch.org/whl/cu121
 torch==2.5.1+cu121

@@ -1,0 +1,21 @@
+{
+  "image_size": 512,
+  "teachers": [
+    "models/experiments/germany-louisiana-foundation-initialized-four-class-20260926/best_model.pth",
+    "models/experiments/e4-class-aware-crop-pilot-20261005/best_model.pth"
+  ],
+  "low_thresholds": {
+    "non_flooded_building": 0.05,
+    "flooded_building": 0.05,
+    "non_flooded_road": 0.05,
+    "flooded_road": 0.05
+  },
+  "high_thresholds": {
+    "non_flooded_building": 0.9,
+    "flooded_building": 0.92,
+    "non_flooded_road": 0.9,
+    "flooded_road": 0.95
+  },
+  "max_variance": 0.0025,
+  "selection_status": "initial_conservative_filter_only; requires new spatial validation before training use"
+}

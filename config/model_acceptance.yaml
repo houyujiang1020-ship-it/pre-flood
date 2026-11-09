@@ -1,0 +1,14 @@
+schema_version: 1
+# Research review is not production acceptance. No competition thresholds have been supplied.
+research_candidate:
+  require_baseline_improvement: true
+  require_visual_review: true
+  require_minority_precision_recall: true
+  require_stability_review: true
+production_candidate:
+  approved: false
+  approval_evidence: null
+  thresholds: null
+  require_independent_region: true
+  require_same_checkpoint: true
+

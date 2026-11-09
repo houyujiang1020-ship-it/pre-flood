@@ -1,0 +1,55 @@
+{
+  "model_id": "siamunet-gn-sampler-pilot-20260912",
+  "data_root": "data/spacenet8/sample",
+  "output_dir": "models/experiments/siamunet-gn-sampler-pilot-20260912",
+  "image_size": 256,
+  "epochs": 12,
+  "learning_rate": 0.0003,
+  "seed": 20260912,
+  "device": "cuda",
+  "normalization": "groupnorm",
+  "groupnorm_groups": 8,
+  "balanced_loss": false,
+  "dice_weight": 0.5,
+  "spatial_augmentation": true,
+  "selection_metric": "macro_iou",
+  "thresholds": {
+    "non_flooded_building": 0.5,
+    "flooded_building": 0.5,
+    "non_flooded_road": 0.5,
+    "flooded_road": 0.5
+  },
+  "sampler": {
+    "type": "positive_aware",
+    "epoch_size": 10,
+    "min_fractions": {
+      "has_flooded_building": 0.4,
+      "has_flooded_road": 0.4,
+      "has_building": 0.6,
+      "has_road": 0.6
+    },
+    "max_background_fraction": 0.1
+  },
+  "test_scope": "No test split evaluated. Germany-only 10/4 pilot for GroupNorm plus sampling without duplicate loss reweighting.",
+  "splits": {
+    "train": [
+      {"area":"Germany_Training_Public","label":"0_41_59.geojson"},
+      {"area":"Germany_Training_Public","label":"0_45_64.geojson"},
+      {"area":"Germany_Training_Public","label":"0_32_59.geojson"},
+      {"area":"Germany_Training_Public","label":"0_38_61.geojson"},
+      {"area":"Germany_Training_Public","label":"0_45_68.geojson"},
+      {"area":"Germany_Training_Public","label":"0_20_68.geojson"},
+      {"area":"Germany_Training_Public","label":"0_38_69.geojson"},
+      {"area":"Germany_Training_Public","label":"0_29_70.geojson"},
+      {"area":"Germany_Training_Public","label":"0_35_63.geojson"},
+      {"area":"Germany_Training_Public","label":"0_19_67.geojson"}
+    ],
+    "validation": [
+      {"area":"Germany_Training_Public","label":"0_36_60.geojson"},
+      {"area":"Germany_Training_Public","label":"0_17_66.geojson"},
+      {"area":"Germany_Training_Public","label":"0_19_63.geojson"},
+      {"area":"Germany_Training_Public","label":"0_23_63.geojson"}
+    ],
+    "test": []
+  }
+}

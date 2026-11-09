@@ -1,0 +1,6 @@
+ai:
+  backend: e4-research
+  device: auto
+  checkpoint: models/experiments/germany-louisiana-foundation-initialized-four-class-20260926/best_model.pth
+  architecture_source: upstream/SpaceNet8/baseline/models/other/siamunetdif.py
+  image_size: 512

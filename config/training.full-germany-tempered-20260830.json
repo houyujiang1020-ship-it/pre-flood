@@ -1,0 +1,3210 @@
+{
+  "data_root": "11",
+  "cache_dir": "data\\processed\\full-audit-20260830\\cache512",
+  "source_audit_sha256": "a26a81a12c14659d6ad2ea68a4d9133123363efe14083db670cd78e9a5ff1ad9",
+  "output_dir": "models/checkpoints/full-germany-tempered-20260830",
+  "image_size": 512,
+  "epochs": 40,
+  "learning_rate": 0.0003,
+  "seed": 42,
+  "device": "cuda",
+  "balanced_loss": true,
+  "dice_weight": 0.5,
+  "spatial_augmentation": true,
+  "test_scope": "Louisiana is region-held-out for this run; two tiles were examined in earlier research, so this is not a blind benchmark. Reused benchmark for refinement; not an untouched final test.",
+  "splits": {
+    "train": [
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_70.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_70.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_17_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_17_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_17_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_17_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_70.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_70.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_70.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_25_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_25_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_25_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_25_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_25_70.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_64.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_64.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_64.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_70.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_70.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_57.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_56.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_57.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_58.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_65.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_33_56.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_33_57.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_33_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_33_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_34_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_34_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_34_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_35_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_35_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_35_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_35_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_35_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_35_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_36_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_36_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_36_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_36_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_36_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_70.geojson"
+      }
+    ],
+    "validation": [
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_66.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_57.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_58.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_58.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_58.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_59.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_60.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_61.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_43_58.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_43_62.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_43_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_43_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_43_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_44_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_44_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_44_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_45_63.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_45_64.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_45_67.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_45_68.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_45_69.geojson"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_45_70.geojson"
+      }
+    ],
+    "test": [
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_59.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_3.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_13_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_20_12.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_7.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_55.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_10.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_56.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_14.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_11.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_53.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_23_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_3.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_28_37.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_7.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_26_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_28_33.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_70.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_62.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_15_47.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_91.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_21.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_7.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_22_21.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_97.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_12_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_92.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_103.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_42.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_98.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_41.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_11_16.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_38.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_41.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_2_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_48.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_22.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_104.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_90.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_14.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_91.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_11_3.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_57.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_106.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_18.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_11.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_96.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_29_35.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_105.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_101.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_22_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_27_34.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_92.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_101.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_10_3.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_12.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_51.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_13.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_54.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_14_49.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_3.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_35.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_91.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_7.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_95.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_40.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_60.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_98.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_14_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_38.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_35.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_12_3.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_23_43.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_70.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_43.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_18.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_90.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_11_2.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_56.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_16.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_13.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_29_38.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_12.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_50.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_97.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_104.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_23_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_104.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_29_34.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_59.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_100.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_23_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_100.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_10_2.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_99.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_61.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_26_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_26_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_105.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_98.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_39.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_34.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_14_48.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_2.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_90.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_6.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_91.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_16.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_41.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_106.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_37.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_102.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_62.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_24_18.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_12_2.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_23_42.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_20_21.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_20_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_2.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_92.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_20_13.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_54.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_6.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_104.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_16.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_14_51.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_58.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_13_48.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_30_37.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_95.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_2.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_18.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_26_33.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_28_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_6.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_28_32.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_30_33.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_53.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_11.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_14.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_24_42.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_57.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_23_18.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_52.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_10.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_6.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_22_20.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_12_14.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_96.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_102.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_43.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_63.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_15_46.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_20.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_95.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_39.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_6.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_49.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_2.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_91.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_2_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_24_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_35.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_99.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_40.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_24_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_53.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_11.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_14.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_23_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_22_18.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_10.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_23_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_95.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_27_33.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_29_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_106.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_27_37.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_102.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_29_32.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_91.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_102.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_23_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_9_2.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_15_51.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_58.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_12.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_92.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_11_4.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_105.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_13.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_3_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_104.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_99.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_100.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_95.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_60.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_49.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_23_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_12_4.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_63.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_14_46.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_26_70.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_26_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_92.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_23_20.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_97.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_37.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_96.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_4.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_43.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_30_35.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_59.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_4.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_26_35.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_16.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_13.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_24_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_105.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_12.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_50.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_55.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_18.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_9.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_25_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_13_46.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_4.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_56.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_20_11.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_20_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_24_20.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_8.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_102.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_97.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_103.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_11_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_42.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_4.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_21.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_24_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_8.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_37.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_24_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_15_48.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_104.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_95.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_100.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_12_16.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_41.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_99.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_61.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_15_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_8.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_98.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_39.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_3_90.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_12.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_30_38.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_18_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_16_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_51.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_13.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_54.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_3_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_96.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_30_34.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_58.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_23_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_26_34.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_5.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_22_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_20_18.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_14_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_15_9.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_24_21.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_103.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_8.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_91.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_13_47.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_21_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_57.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_15_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_9.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_24_70.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_24_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_96.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_43.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_5.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_24_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_20.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_60.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_98.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_15_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_99.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_21_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_5.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_15_49.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_35.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_105.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_91.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_12_13.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_101.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_90.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_95.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_23_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_29_37.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_27_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_29_33.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_103.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_5_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_23_70.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_103.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_90.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_10.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_18_52.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_10_98.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_23_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_75.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_17_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_16_14.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_19_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_18_11.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_22_19.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_21_16.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_73.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_81.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_13_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_85.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_20_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_6_88.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_82.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_15_50.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_14_86.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_94.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_83.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_61.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_3_89.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_48.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_23_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_77.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_20_22.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_12_5.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_90.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_65.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_11_87.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_45.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_40.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_72.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_105.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_24_17.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_4_98.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_105.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_8_101.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_41.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_25_76.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_17_44.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_26_79.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_74.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_93.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_96.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_84.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_1.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_7_97.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_16_36.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_15.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_80.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_13_5.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_9_92.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_20_42.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_17_20.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_19_62.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_78.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_14_47.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_12_106.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "1_26_71.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "2_22_37.geojson"
+      },
+      {
+        "area": "Louisiana-East_Training_Public",
+        "label": "0_19_21.geojson"
+      }
+    ]
+  },
+  "positive_weight_exponent": 0.5,
+  "positive_weight_cap": 8,
+  "selection_metric": "macro_iou"
+}

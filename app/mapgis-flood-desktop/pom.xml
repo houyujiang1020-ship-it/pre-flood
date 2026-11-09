@@ -12,6 +12,7 @@
     <junit.version>5.13.4</junit.version>
     <mapgis.home>C:/Program Files/MapGIS 10/Program</mapgis.home>
     <javafx.version>17.0.16</javafx.version>
+    <floodguard.build.directory>${project.basedir}/target</floodguard.build.directory>
   </properties>
   <dependencies>
     <dependency>
@@ -27,6 +28,7 @@
     </dependency>
   </dependencies>
   <build>
+    <directory>${floodguard.build.directory}</directory>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -42,6 +44,8 @@
         <groupId>org.codehaus.mojo</groupId><artifactId>build-helper-maven-plugin</artifactId><version>3.6.1</version>
         <executions><execution><id>mapgis-source</id><phase>generate-sources</phase><goals><goal>add-source</goal></goals>
           <configuration><sources><source>src/mapgis/java</source></sources></configuration>
+        </execution><execution><id>mapgis-test-source</id><phase>generate-test-sources</phase><goals><goal>add-test-source</goal></goals>
+          <configuration><sources><source>src/mapgis-test/java</source></sources></configuration>
         </execution></executions>
       </plugin><plugin>
         <groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>3.6.1</version>
@@ -65,6 +69,9 @@
         </dependency>
         <dependency>
           <groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>org.openjfx</groupId><artifactId>javafx-web</artifactId><version>${javafx.version}</version>
         </dependency>
         <dependency>
           <groupId>com.zondy.mapgis</groupId><artifactId>pluginengine</artifactId><version>10-local</version><scope>system</scope>

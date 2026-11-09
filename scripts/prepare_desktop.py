@@ -4,7 +4,15 @@ import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
 
-PACKAGE = 'com.mapgis.floodguard.mapgis.'
+# Installed 10.7.10.10 scans only com/zondy/mapgis/*plugin* classes.
+PACKAGE = 'com.zondy.mapgis.floodguard.plugin.'
+
+
+def current_plugin(root: Path) -> Path:
+    plugin = root / 'app/mapgis-flood-desktop/target/mapgis-floodguard-plugin.jar'
+    if not plugin.is_file():
+        raise FileNotFoundError('Build the current MapGIS plugin first with scripts/build_mapgis_plugin.ps1')
+    return plugin
 
 
 def extend_ui(raw: bytes, program: Path, plugin: Path) -> ET.ElementTree:
@@ -19,12 +27,12 @@ def extend_ui(raw: bytes, program: Path, plugin: Path) -> ET.ElementTree:
     if not any(p.text == str(plugin.resolve()) for p in packages):
         ET.SubElement(packages, 'package').text = str(plugin.resolve())
     for page in pages.findall('ribbonpage'):
-        if page.get('name') == PACKAGE + 'FloodRibbonPage':
+        if page.get('name') in (PACKAGE + 'FloodRibbonPage', 'com.mapgis.floodguard.mapgis.FloodRibbonPage'):
             pages.remove(page)
     page = ET.SubElement(pages, 'ribbonpage', name=PACKAGE + 'FloodRibbonPage', text='洪涝应急', isselected='true')
     group = ET.SubElement(page, 'ribbonpagegroup', name=PACKAGE + 'FloodRibbonGroup', text='智能解译')
-    ET.SubElement(group, 'item', name=PACKAGE + 'FloodInferenceCommand', caption='洪涝智能识别',
-                  hint='选择影像、调用模型并检查结果', type='command', begingroup='false')
+    ET.SubElement(group, 'item', name=PACKAGE + 'FloodInferenceCommand', caption='洪涝应急决策平台',
+                  hint='打开 MapGIS-FloodGuard GIS 工作台', type='command', begingroup='false')
     main = root.find('mainapp')
     if main is not None:
         main.set('caption', 'MapGIS-FloodGuard 洪涝应急决策 · 开发验证版')
@@ -36,9 +44,7 @@ def main():
     parser.add_argument('--program', type=Path, required=True)
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    plugin = root / 'app/mapgis-flood-desktop/target/mapgis-floodguard-plugin.jar'
-    if not plugin.is_file():
-        raise FileNotFoundError('Build the MapGIS plugin first')
+    plugin = current_plugin(root)
     with zipfile.ZipFile(args.program / 'mapgis_ribbonapploader.jar') as archive:
         tree = extend_ui(archive.read('application.xml'), args.program, plugin)
     destination = root / 'runtime/desktop/application.xml'

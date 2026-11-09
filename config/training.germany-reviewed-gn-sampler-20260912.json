@@ -1,0 +1,857 @@
+{
+  "model_id": "germany-reviewed-gn-sampler-20260912",
+  "data_root": "11",
+  "cache_dir": "experiments\\datasets\\germany-visibility-frozen-20260912\\cache512",
+  "output_dir": "models/experiments/germany-reviewed-gn-sampler-20260912",
+  "image_size": 512,
+  "epochs": 40,
+  "learning_rate": 0.0003,
+  "seed": 20260912,
+  "device": "cuda",
+  "normalization": "groupnorm",
+  "groupnorm_groups": 8,
+  "balanced_loss": false,
+  "dice_weight": 0.5,
+  "spatial_augmentation": true,
+  "selection_metric": "macro_iou",
+  "thresholds": {
+    "non_flooded_building": 0.5,
+    "flooded_building": 0.5,
+    "non_flooded_road": 0.5,
+    "flooded_road": 0.5
+  },
+  "training_authorized": true,
+  "test_scope": "Germany train/validation only. No Louisiana or test split is read for selection.",
+  "splits": {
+    "train": [
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_63.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_15_63",
+        "selected_post_sha256": "1ae04d9aa06de490e1abf17f25300cc762c1cf1b22a0b3e71f5eb139a39b6795"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_65.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_15_65",
+        "selected_post_sha256": "32a2c897b1fbd45cd98dea641c619c1faf2d4b50f6371a872e75a09609a5bd34"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_66.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_15_66",
+        "selected_post_sha256": "222315d9403ce0e4b860c426cb7ebc5f6e31a64d617dee84d0522eb19d3c6651"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_67.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_15_67",
+        "selected_post_sha256": "04c4197adad8a2f62289bee23db4281f2467e22d6c2439c228b6a0620e1712b9"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_68.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_15_68",
+        "selected_post_sha256": "6477f8075d07461ada84b591910c2ecef2730e5eda53198fc83ed35c9dd5d158"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_15_69",
+        "selected_post_sha256": "767b45611fc8f897db088ac7ba4a0b43fb0c8aeb1f94204b92778a69f25e135b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_15_70.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_15_70",
+        "selected_post_sha256": "a649cf78b83cc1736d1efc294ba46de138d83d24faf4839935245ce74dddbbf8"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_16_63",
+        "selected_post_sha256": "eee746de1ae49e133f30ed39d3966da613a75e531879256a8f8efcead8484a2c"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_66.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_16_66",
+        "selected_post_sha256": "5b52055d394eb80a5810535773ef7419b314b2960b199b9ff83de00aeded32d5"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_67.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_16_67",
+        "selected_post_sha256": "72e51bbe4fb183a737520322294aa9b892203924f3c17211d6515d682b49187a"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_16_70.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_16_70",
+        "selected_post_sha256": "2ec88166d74f1905e47715141ad1e2d098df45b725c0bcfe2a19907a49a0eb20"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_17_63.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_17_63",
+        "selected_post_sha256": "40430835275a766e4c2560afa36b6eee5b245408ab48ac5eb275aba0059d1bdc"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_17_66.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_17_66",
+        "selected_post_sha256": "4cfdffe0d92237eb991948734e7562bf0549b0104ccfd66240b76549989fe12b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_17_67.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_17_67",
+        "selected_post_sha256": "6b800ad7fe1b33ee4eb94c261d25ee41d34a6bd66857596ea67b686549970eda"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_63.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_18_63",
+        "selected_post_sha256": "faf6134f22c72868419bcb41ef7518484a16392931010d166bc1f85c6f44de88"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_65.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_18_65",
+        "selected_post_sha256": "3383b4eeeec94c99159aea0fcf98adb6ecd6a0a54440cac0571acdcff48d1011"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_18_67.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_18_67",
+        "selected_post_sha256": "bc5677053b0ed6ae6975fd36d1ecc6c779e6e1f7efd46ad1ba432e5c092a2358"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_65.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_19_65",
+        "selected_post_sha256": "3b69ec42f1dec9110cc0fc7e04f28d681da53095a34637f287399b0f7f256822"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_66.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_19_66",
+        "selected_post_sha256": "23d33773a0511a29e9d9c9cc6e207706c331d88b32495596be9b2af5741b9d92"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_67.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_19_67",
+        "selected_post_sha256": "49c97dae57478ca8dfa793ece9603765bb69ec43291c9f1420fc7335c093006b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_19_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_19_68",
+        "selected_post_sha256": "8164d10ccddf0c5374f8b12107b505d5750ef219f1bcdac6f089c3f101021c9d"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_65.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_20_65",
+        "selected_post_sha256": "279b8fcba8d90428bb36fe5471d9461784a769e657c6f0f3b10efc100844ebd8"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_66.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_20_66",
+        "selected_post_sha256": "539e395487f755c1ef52f89e3661ee47ba2aec4adc9cf82d95aa5aa3371163da"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_67.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_20_67",
+        "selected_post_sha256": "95d919727b77fcb6a8de05236cc2c833f5f7d6ef06d83568f70d39608c38cb68"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_20_68.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_20_68",
+        "selected_post_sha256": "a3bc9ac07fcf46f90453dc28673bafba1e0fa1340a1da3229f6472cfb86833db"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_21_63",
+        "selected_post_sha256": "cacf3df3821a9e60513fb785090237c33c456944bda6f8c7caefe84005bb12c1"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_65.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_21_65",
+        "selected_post_sha256": "ab7e3d015467489297dab3fc98ccdfd038a73094d508c050a65a7347bf2c22c2"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_66.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_21_66",
+        "selected_post_sha256": "94baab2902d74f58ad0a0e44d697de8380ff9aab0a8d659f9fe66cdb8affd22e"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_21_67.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_21_67",
+        "selected_post_sha256": "40c2dfcc3ab5ae8007fa1acade11844aaa7d87acbceb2a79618d991d1eba622b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_63.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_22_63",
+        "selected_post_sha256": "e4904abfb571b003440599b696d7226728257e5309cd95b53c1f0d16c2334405"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_65.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_22_65",
+        "selected_post_sha256": "6787ca579a61c7ee1340862d00db647e3585940c4364f83193f787703ac1f2f2"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_66.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_22_66",
+        "selected_post_sha256": "5645e838e1d1dc934f17ce3a583fa8a349c1475c0682c9c6df440260d3519a46"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_22_69",
+        "selected_post_sha256": "25c705a036065a21c39fc90170cd8c6de53ca62ae6aa3869c5640cf265e40429"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_22_70.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_22_70",
+        "selected_post_sha256": "dd2187ba6d8a60fcc5f796c42da6041062be53a499db553e3d1432676e36aea4"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_23_63",
+        "selected_post_sha256": "13b7ae08140b2907359828cd4a42812a2c84f559fa528e78db1b06ed08291225"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_65.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_23_65",
+        "selected_post_sha256": "885e2cfb55601640625335e5b767b2d0e1be3055918550d3cdd83ee95fab03c7"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_23_68",
+        "selected_post_sha256": "30c4a67ea1229a6791619403888c8b2db708b9ec3a6f03182a1f46df54ab48f9"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_23_70.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_23_70",
+        "selected_post_sha256": "1da4361f8e5e3e40571d40d1f4544574ec40f7aa07bee6971356164dace05d66"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_66.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_24_66",
+        "selected_post_sha256": "43a5013f4559cc69443a8877658d603c4035cf27339a5851fc3a04847f59ad77"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_67.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_24_67",
+        "selected_post_sha256": "aeb75a96f25d256f2dc2549635227b059b3faa564f44bf06b1d7b6c6daa2ba22"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_24_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_24_68",
+        "selected_post_sha256": "a4a830a6a7caa002bceaf66ce9c576817a82ef42795fdf6afb8396dd2d3a0019"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_25_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_25_69",
+        "selected_post_sha256": "0c05631cc84b087b18c866e54343ceb4ee00d3b8ad6d1a7dfdcb6e1a003bcc57"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_25_70.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_25_70",
+        "selected_post_sha256": "bcd01f010087a86b6eaa221165ebf10d9956f4a0d2e2696a32968eb4c2ae77d0"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_26_63",
+        "selected_post_sha256": "0cfd169cc24047c20ddc8a7e2905a1010ebfb0de8bc4dbf8e286d84e2a9f6814"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_67.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_26_67",
+        "selected_post_sha256": "7a0e6a059e9e434259ee4d9f428ea511d05d1adceb7702d4b2a5f91d7d89fbcf"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_26_68",
+        "selected_post_sha256": "b6e19bb3bdbcfed6077873869904e8f111f54b36fd00ce30c0d93d925aa1214e"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_26_69.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_26_69",
+        "selected_post_sha256": "d457709eda59c3c88e1665c8166e2187d771d512609c9aa1f14e128d0641f173"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_27_63",
+        "selected_post_sha256": "edef250cdf57d25c669072e28b40e6ad04ebe7b8b60ae68ad3e4daf528eb1b5b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_66.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_27_66",
+        "selected_post_sha256": "927b827833815f7a4c501aaef3d1278347e973450de0486ef81fc5208e1f9199"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_67.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_27_67",
+        "selected_post_sha256": "c3fed44308c0ad794cfa7c76cf759be4aa11343765c0d8b4f11316de41c4456b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_68.geojson",
+        "post_event_column": "post-event image 2",
+        "review_sample_id": "Germany_0_27_68",
+        "selected_post_sha256": "4e1a103d5ee376eb31dca2b918b7b7b5ef1fadc46cfa4c22ae25ef71501a565b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_27_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_27_69",
+        "selected_post_sha256": "57cc9ac79f225bb549f6666449111382a942a5ad648c2a053b575dc43e7c6843"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_59.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_28_59",
+        "selected_post_sha256": "d84f765778fe14472b8b89a62c5b076fbca8b84d2ea5a2b8b89d5e498c927c2e"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_60.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_28_60",
+        "selected_post_sha256": "a99815ffe8f0db669949affbeb7c22b7747b212ed821c87a738b28ff9ff8beb8"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_61.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_28_61",
+        "selected_post_sha256": "dfb8849a61f68f4df9210f95a902397fd9e45b2a6f479c8c89f6aacf58ce506c"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_28_66.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_28_66",
+        "selected_post_sha256": "b7dd7675f7f231473c7faeda544270b70bed617cd508ce0e1aed3a2ed074490d"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_61.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_29_61",
+        "selected_post_sha256": "0e95d92f7edd2bbb49d18f9cd8b5ac3727e011dbc0b42c7d5cd0f48470eb4816"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_62.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_29_62",
+        "selected_post_sha256": "705c8e662202ff5dab169fe17d194a46447075599aade035bde223394019a9df"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_29_63",
+        "selected_post_sha256": "5702e72eaec42c992a89448121171448b39cb9cd8c91264559cab20b4ed4a8d1"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_66.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_29_66",
+        "selected_post_sha256": "1cafa2769518a65af9e1e00a091a3301a41824bc106d082da474f3dbea8f6b1a"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_29_68",
+        "selected_post_sha256": "e77107772b1568d8c9637b0cd40d1041c6036467b6dd5a113bab6dcf8a9ce2c3"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_29_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_29_69",
+        "selected_post_sha256": "fe022254a184b615e229413cd9bf751e6e9dccad487e2087760d976be3f4f77b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_59.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_30_59",
+        "selected_post_sha256": "d1750db55dce197e3a4e56d277169aed16b8652c1555ac2850049d32b05f5f76"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_60.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_30_60",
+        "selected_post_sha256": "33dfaba5ce3163e73a093ffbd6b9798e200cc92812cf6b527577f855b485c6f9"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_61.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_30_61",
+        "selected_post_sha256": "21d2260a0e8bd981d68ee55aef95168ecab0df70d4b78a8bf4db3ea4a9e8d7c8"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_30_63",
+        "selected_post_sha256": "08d0637025045244a758a1c938852eccbffc5359b15bd85b1e313bda8ff9e7d4"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_66.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_30_66",
+        "selected_post_sha256": "d6dc50312d85c7252e9cc7d04a2b7d584ba9adb669c4416d1e02cd1162159e9a"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_30_68",
+        "selected_post_sha256": "73bece70dd6b46df85aac4096c15fe6bc82dbf870db289c36cd7479719b81800"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_30_69",
+        "selected_post_sha256": "9ac24e04debc57db6d4b6803b11772fad5503208ceda7f2bac2861a137e5b90c"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_30_70.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_30_70",
+        "selected_post_sha256": "0752018c043adac98635c6cac9324ad356e812aad7dc503038c0b40492bf02d0"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_57.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_31_57",
+        "selected_post_sha256": "6cade89891f03d8525a92fc9035bd49993e27fda83191d91a80630605c53b65a"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_59.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_31_59",
+        "selected_post_sha256": "7dcbb35ed1e846f61ad01783ed97e417baef0e26b3b156b83f03a12c7a4aab3e"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_60.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_31_60",
+        "selected_post_sha256": "ed32e30124e5d882fd0af6353e3cf253cb2805cc097407ff5f74ffec4d1b2c4d"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_61.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_31_61",
+        "selected_post_sha256": "73cca653ddb1871ff9e31b820d5caa5483b3516729cbb0a0495fed612ad64b75"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_66.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_31_66",
+        "selected_post_sha256": "4b25580fd7ac918f29e5f2cf59366191dc43fbb0ff36c593b3c6bd2894af40bc"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_31_68",
+        "selected_post_sha256": "b9b14cbfd7aeddae103bab13b8662b169b2fc661e246443bb73aadc2d8582019"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_31_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_31_69",
+        "selected_post_sha256": "9531cff9b031e1267f2989e18d2508fc6c48a7f35132e7008454a0f2a975500d"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_57.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_32_57",
+        "selected_post_sha256": "c6d7c641e2448e53f9f514e5de2010ad40d12beb43199a22b6a1dcb187bb5e2f"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_58.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_32_58",
+        "selected_post_sha256": "f9fdc43b279c287a07ad099bb133612218770ab9809907dc2217c062d8448bf9"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_66.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_32_66",
+        "selected_post_sha256": "70a8066b02d966d4fb555408621bc587b5f7d4f008db069e660fb2afd8592d75"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_32_68",
+        "selected_post_sha256": "a3882002106ff5e0047f09ee1cbc5cd3c7083c16e982fe88216b67859f70d0ab"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_32_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_32_69",
+        "selected_post_sha256": "ea7e4cfee0ea085d25a1bc90261f9d1f6a995ec8ce054ef40afcb2b4ee619b41"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_33_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_33_68",
+        "selected_post_sha256": "c125f8760f9e46ea68fbabc315461db9f1a0ab32edceed01aa461937c5f54377"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_34_61.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_34_61",
+        "selected_post_sha256": "6dafbe0469bb6fbf998d298afac8ee775ddc5e0aa6d000fcfb03ef9310c45d34"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_34_62.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_34_62",
+        "selected_post_sha256": "765e415f347f3e148a4b00e032c75bf927e22af68674acbf052400e400115de9"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_34_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_34_68",
+        "selected_post_sha256": "df1578b8c3628d0300adf5cbabc90ebc4454bf41be1097898d5a21d61c8cde6f"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_35_62.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_35_62",
+        "selected_post_sha256": "ef4e997764b1471875652cf360a0c82f6f1e763b026274d3c0ea3179ddbcd4fa"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_35_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_35_68",
+        "selected_post_sha256": "31fcfd1daa45bd4927d6834d5cbb335480345ffce853f259c07aa83b957dbf11"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_36_59.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_36_59",
+        "selected_post_sha256": "ba81172e9d2bf3ba95d1a3ddece256daddebf3bc08c0e945027f25420baafdcc"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_36_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_36_68",
+        "selected_post_sha256": "3a32eaf16b7bd41ae5ee9dee94ffcceceecc45b94eb166c6189a63ec13cdbbc6"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_59.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_37_59",
+        "selected_post_sha256": "2c7cc034d5f52fa89ec8e5fe3ccca9d1a2671fb6dce4d435de54587194d49516"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_60.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_37_60",
+        "selected_post_sha256": "1a85002328aadad6541f0449f6246e4e396c2df20248a056a7897a27b72dea50"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_61.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_37_61",
+        "selected_post_sha256": "04edb38e4f9a531ac80c9f12bced14aa9d3923ac3254b6d22d00eea3e2c44911"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_62.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_37_62",
+        "selected_post_sha256": "f2081755f73c8b8bae07413d6d4067909d12128553a577b2d2e384a8c6618ee8"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_67.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_37_67",
+        "selected_post_sha256": "7fd4bb850aacd426e3575e3144cda33f949e66e583d67142192843e2c1732b01"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_37_68",
+        "selected_post_sha256": "1229982999034ed1c7cb3f6ed8ac836d9cc3d13778c43d02ae970f210f90b957"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_37_69",
+        "selected_post_sha256": "0b7972a6b33af0b6e580e278032ef601616aaeeb7df060fef22944fa814b3a0f"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_37_70.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_37_70",
+        "selected_post_sha256": "457af5e5bf3d1941aa5db2f18bf07d6f38dd87678dc980810f424c91dd3565d2"
+      }
+    ],
+    "validation": [
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_62.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_39_62",
+        "selected_post_sha256": "f54d3a5e53fbbfac1a388ff57b8693a59cb19335c85df2fe7495e1d3a773812e"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_39_63",
+        "selected_post_sha256": "f8b50c38d0fdc7fc0a43d207bfd30e0b7d3ab13562f12dcc01b1a4635119927a"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_39_67.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_39_67",
+        "selected_post_sha256": "a3b0e11b8e72ffaeb2ccc8e1b07693edc2b74ca94079e12e9d17d922cb7c3106"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_58.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_40_58",
+        "selected_post_sha256": "3c7e781781441e4f1734b926e0a5971f45a8ea0083d4a03fd39512e3be0df4b0"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_59.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_40_59",
+        "selected_post_sha256": "ae7967e0f99997805d71709aebe39d8eaf2bbcd84e5aa9c3c3c0bb40e890cc8a"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_40_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_40_63",
+        "selected_post_sha256": "bf438c97649e28adbc7d989858ed98bda8496843d923d5101859a1b27394236f"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_59.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_41_59",
+        "selected_post_sha256": "eb97355275d2001694beb86c7906da1c2656e491c12b10a4da9a459e74320c17"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_41_63",
+        "selected_post_sha256": "200542a05a61acfa05b903488ad7fc3ef05e79ef85f31212c8aa11695a2af26a"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_41_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_41_69",
+        "selected_post_sha256": "c00de0ba8958be8f2d22e5fd1dbdaec25330b1596ca1757440046dcf8af116c1"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_59.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_42_59",
+        "selected_post_sha256": "e885dc564fc657acf1bbe84676d66e77bbec60404ca55982edb9b93ae290baf5"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_60.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_42_60",
+        "selected_post_sha256": "fea0caa97983a3d7dc1d698c3f8fff981aad7271bc0ddbe98d517eefbf27287a"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_62.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_42_62",
+        "selected_post_sha256": "8db862c03746f9d9064040ca34939b15d631ac69041fb81a01987670d4d3a709"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_42_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_42_69",
+        "selected_post_sha256": "c0b4c36d4c19b11189f280e1aa4306b6a3c8b62aabf920aab7f052d2b4875bfb"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_43_62.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_43_62",
+        "selected_post_sha256": "2cc387c9ec46f5e054ca9d10ce25b0649048a5e430df304f6b1dfd61da40d63d"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_43_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_43_69",
+        "selected_post_sha256": "528e79f110f6d02e1d54f4ffa077a4ebe741897a35a6daeee3bc8fb346d31297"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_44_63.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_44_63",
+        "selected_post_sha256": "d7ebac8c6a042742b3e64ccf43c5c1f7dfe07b3c42f0178579d292555e2d6c5b"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_44_68.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_44_68",
+        "selected_post_sha256": "f312fb8feaa168874f27e0e2afaf7907b466e3400b55b48e080b54673b8ca0ee"
+      },
+      {
+        "area": "Germany_Training_Public",
+        "label": "0_44_69.geojson",
+        "post_event_column": "post-event image 1",
+        "review_sample_id": "Germany_0_44_69",
+        "selected_post_sha256": "bff6e07829354d3bee78d968e2860260a7d02519406448550faea32a2fee5f35"
+      }
+    ],
+    "test": []
+  },
+  "sampler": {
+    "type": "positive_aware",
+    "epoch_size": 98,
+    "min_fractions": {
+      "has_flooded_building": 0.4,
+      "has_flooded_road": 0.4,
+      "has_building": 0.6,
+      "has_road": 0.6
+    },
+    "max_background_fraction": 0.1
+  },
+  "frozen_dataset_manifest": "experiments/datasets/germany-visibility-frozen-20260912/freeze_manifest.json",
+  "frozen_dataset_sha256": "14f57e129972554d64991f956f3e23f29cc947007605e6b052f8b4001ba8e1b1"
+}

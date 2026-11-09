@@ -13,4 +13,6 @@ flood = ((x - 135) ** 2 / 95**2 + (y - 145) ** 2 / 75**2) <= 1
 post[flood] = (35, 75, 175)
 Image.fromarray(pre).save(root / "灾前演示.png")
 Image.fromarray(post).save(root / "灾后演示.png")
+Image.fromarray(pre).save(root / "pre_demo.png")
+Image.fromarray(post).save(root / "post_demo.png")
 print(root)

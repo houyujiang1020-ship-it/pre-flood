@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>德国数据可见性人工审查</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header><div><small>智洪卫 · 研究数据治理</small><h1>德国数据可见性人工审查</h1></div><span id="mode">本机 · 人工审查</span></header>
+<main>
+<div id="stats" class="stats"></div>
+<div class="toolbar"><label>筛选 <select id="filter"><option value="all">全部</option><option value="pending">待审</option><option value="accepted">已接受</option><option value="rejected">已拒绝</option><option value="needs_review">需复核</option><option value="post1">已选灾后影像1</option><option value="post2">已选灾后影像2</option></select></label>
+<label>样本 <input id="search" type="search" placeholder="按样本编号搜索"></label>
+<label><input id="risk" type="checkbox"> 风险／可疑项优先</label><button id="resume">回到待审</button><span id="save-status" role="status">已加载</span></div>
+<div class="sample-head"><h2 id="sample-id">正在加载…</h2><span id="position"></span><span id="decision-state"></span><button id="previous">← 上一个 [P]</button><button id="next">下一个 [N] →</button></div>
+<p class="advice">自动指标仅用于安排审查优先级，人工审查决定最终结论。无受淹道路、无受淹建筑或正类稀少不是图像质量拒绝标准。</p>
+<div id="error" role="alert"></div>
+<div class="overlay-controls"><label><input type="checkbox" id="building"> <i class="cyan"></i> <span id="building-label">显示建筑标签</span></label><label><input type="checkbox" id="road"> <i class="yellow"></i> <span id="road-label">显示道路标签</span></label><label><input type="checkbox" id="flood"> <i class="pink"></i> <span id="flood-label">显示受淹标签</span></label><button id="hide-labels">切换标签显示 [O]</button><span id="overlay-note">粉色：受淹建筑 · 橙色：受淹道路 · 点击图片放大</span></div>
+<div id="images" class="images"></div>
+<section id="review"><div class="decision-buttons"><button id="accept1" class="accept">[1] 接受灾后影像1</button><button id="accept2" class="accept">[2] 接受灾后影像2</button><button id="reject" class="reject">[R] 拒绝</button><button id="uncertain">[U] 需复核</button><button id="pending">重置为待审</button><label>审查人 <input id="reviewer" value="人工审查" maxlength="200"></label></div>
+<div id="flags" class="flags"></div><label for="notes">备注 · 拒绝时至少勾选问题或填写理由；修改自动保存</label><textarea id="notes" rows="2" maxlength="20000" placeholder="记录云、黑边、空间错位、标签问题等；不在此修改标签"></textarea></section>
+<details><summary>影像元数据、SHA256、自动指标与排序建议</summary><p id="recommendation"></p><div id="metadata"></div></details>
+<footer>预览图仅用于视觉审查，不用于训练。原始影像与标签保持只读。决定立即持久化，自动进入下一待审样本。</footer>
+</main><dialog id="zoom"><button id="close-zoom">关闭 [退出键]</button><h2 id="zoom-title"></h2><div id="zoom-image"></div></dialog>
+<script src="/static/app.js"></script></body></html>

@@ -12,39 +12,63 @@ from rasterio.features import rasterize
 from rasterio.warp import reproject, transform_geom
 import torch
 from PIL import Image
+from pyproj import Transformer
+from shapely.geometry import shape, mapping
+from shapely.ops import transform as geometry_transform
+
+
+def buffered_road(geometry, target_crs):
+    """Research-only 3m UTM buffer, matching pinned baseline/create_masks.py radius.
+
+    No Shapely/pyproj use is permitted in the final AI service or MapGIS application.
+    """
+    line = shape(geometry)
+    if line.is_empty or not line.is_valid or line.geom_type not in ('LineString', 'MultiLineString'):
+        raise ValueError('Invalid road geometry')
+    lon, lat = line.centroid.x, line.centroid.y
+    if not (-180 <= lon <= 180 and -80 <= lat <= 84):
+        raise ValueError('Road outside supported UTM region')
+    zone = min(60, int((lon + 180) // 6) + 1)
+    utm = (32600 if lat >= 0 else 32700) + zone
+    forward = Transformer.from_crs('EPSG:4326', utm, always_xy=True).transform
+    backward = Transformer.from_crs(utm, target_crs, always_xy=True).transform
+    return mapping(geometry_transform(backward, geometry_transform(forward, line).buffer(3.0)))
+
+
+def flooded_class(value):
+    # Match pinned upstream baseline/data_prep/geojson_prep.py:geojson_to_shapefile.
+    # Official SpaceNet8 null values map to non-flooded, not ignored supervision.
+    return int(value in ['yes', 1, True])
 
 
 def load_pair(area, row, size):
     with rasterio.open(area / 'PRE-event' / row['pre-event image']) as pre:
         before = pre.read([1, 2, 3], out_shape=(3, size, size), resampling=Resampling.bilinear)
+        before_valid = pre.read_masks(1, out_shape=(size,size), resampling=Resampling.nearest) > 0
         grid = pre.transform * pre.transform.scale(pre.width / size, pre.height / size)
         crs = pre.crs
     after = np.zeros((3, size, size), dtype=np.float32)
+    after_valid = np.zeros((size,size), dtype=np.uint8)
     with rasterio.open(area / 'POST-event' / row['post-event image 1']) as post:
         for band in range(3):
             reproject(rasterio.band(post, band + 1), after[band], src_transform=post.transform,
                       src_crs=post.crs, dst_transform=grid, dst_crs=crs, resampling=Resampling.bilinear)
+        reproject(post.dataset_mask(),after_valid,src_transform=post.transform,src_crs=post.crs,
+                  dst_transform=grid,dst_crs=crs,resampling=Resampling.nearest)
     features = json.loads((area / 'annotations' / row['label']).read_text(encoding='utf-8'))['features']
     shapes = [[] for _ in range(4)]
-    unknown = []
     for feature in features:
         prop = feature['properties']
         building = prop.get('building') not in (None, 'no', '')
         road = prop.get('highway') not in (None, '')
         if not building and not road:
             continue
-        geom = transform_geom('EPSG:4326', crs, feature['geometry'])
-        state = str(prop.get('flooded', '')).lower()
-        if state not in ('yes', 'no'):
-            unknown.append((geom, 1))
-            continue
-        index = (0 if building else 2) + int(state == 'yes')
+        geom = buffered_road(feature['geometry'], crs) if road and not building else transform_geom('EPSG:4326', crs, feature['geometry'])
+        index = (0 if building else 2) + flooded_class(prop.get('flooded'))
         shapes[index].append((geom, 1))
-    labels = np.stack([rasterize(s, out_shape=(size, size), transform=grid, all_touched=True, dtype='uint8')
+    labels = np.stack([rasterize(s, out_shape=(size, size), transform=grid, all_touched=False, dtype='uint8')
                        if s else np.zeros((size, size), dtype=np.uint8) for s in shapes])
-    valid = np.ones((size, size), dtype=np.float32)
-    if unknown:
-        valid -= rasterize(unknown, out_shape=(size, size), transform=grid, all_touched=True, dtype='uint8')
+    valid = (before_valid & (after_valid>0)).astype(np.float32)
     return (torch.from_numpy(before.astype(np.float32) / 255), torch.from_numpy(after / 255),
             torch.from_numpy(labels.astype(np.float32)), torch.from_numpy(valid))
 
@@ -121,7 +145,7 @@ def main():
         Image.fromarray(rgb).save(out / f'validation_{name}.png')
     report = {'device': device, 'torch': torch.__version__, 'train_labels': [r['label'] for r in rows[:-1]],
               'validation_labels': [rows[-1]['label']], 'size': args.size, 'history': history,
-              'warning': 'Research smoke only. Thin road rasterization differs from official buffered-road training; not production accuracy.'}
+              'warning': 'Research smoke only. 3m UTM road buffers; reduced-resolution training is not production accuracy.'}
     (out / 'training_report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print('Saved and reloaded official-architecture smoke checkpoint.', flush=True)
 

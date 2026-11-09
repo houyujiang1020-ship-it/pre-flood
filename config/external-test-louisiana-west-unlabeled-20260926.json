@@ -1,0 +1,23 @@
+{
+  "dataset_name": "SpaceNet 8 Louisiana-West Test Public",
+  "publisher": "SpaceNet Partners",
+  "source_url": "https://www.spacenet.ai/sn8-challenge/",
+  "license_name": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+  "region_id": "Louisiana-West",
+  "event_id": "Hurricane Ida 2021",
+  "event_date": "2021-08",
+  "downloaded_at": "2026-09-16T22:17:27+08:00",
+  "archive_path": "C:\\Users\\33076\\Downloads\\Louisiana-West_Test_Public.tar.gz",
+  "archive_sha256": "98548b72fa66ef179d9968e8e17cb416eebdbe7673b4a1df54b3b624c76157fd",
+  "dataset_root": "C:\\Users\\33076\\Desktop\\高级开发\\data\\external\\Louisiana-West_Test_Public",
+  "area_name": "Louisiana-West_Test_Public",
+  "source_evidence_path": "C:\\Users\\33076\\Desktop\\高级开发\\data\\external\\Louisiana-West_Test_Public\\provenance\\spacenet-sn8-challenge.html",
+  "license_evidence_path": "C:\\Users\\33076\\Desktop\\高级开发\\data\\external\\Louisiana-West_Test_Public\\provenance\\cc-by-sa-4.0-legalcode.html",
+  "labels_available": false,
+  "purpose": "blind_inference_only",
+  "checkpoint": {
+    "model_id": "germany-louisiana-foundation-initialized-four-class-20260926",
+    "path": "models/experiments/germany-louisiana-foundation-initialized-four-class-20260926/best_model.pth"
+  }
+}

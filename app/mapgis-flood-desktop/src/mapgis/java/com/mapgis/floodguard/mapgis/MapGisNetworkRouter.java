@@ -15,6 +15,15 @@ public final class MapGisNetworkRouter implements RouteProvider {
     private final Set<Integer> blockedEdges;
     private final String forwardMinutes, reverseMinutes, nodeMinutes;
     private final double kilometersPerNetworkUnit;
+    private double exerciseSpeedKph=Double.NaN;
+
+    /** Constant-speed exercise only: native minimum-distance paths, then explicit time conversion. */
+    static MapGisNetworkRouter exercise(NetCls network, Map<String,Integer> nodes, Set<Integer> blocked, double speed) {
+        com.mapgis.floodguard.business.ExerciseTravelTime.minutes(1,speed);
+        var router=new MapGisNetworkRouter(network,nodes,blocked,"unused","unused","unused",0.001);
+        router.exerciseSpeedKph=speed;
+        return router;
+    }
 
     public MapGisNetworkRouter(NetCls network, Map<String, Integer> nodeIds, Set<Integer> blockedEdges,
                                String forwardMinutes, String reverseMinutes, String nodeMinutes, double kilometersPerNetworkUnit) {
@@ -31,6 +40,8 @@ public final class MapGisNetworkRouter implements RouteProvider {
         if (!network.hasOpened()) throw new IllegalStateException("MapGIS 网络尚未打开");
         Integer from = nodeIds.get(start), to = nodeIds.get(destination);
         if (from == null || to == null || from <= 0 || to <= 0) throw new IllegalArgumentException("Unknown network node");
+        if (network.getNodeInfo(from)==null || network.getNodeInfo(to)==null)
+            throw new IllegalArgumentException("Node ID not present in selected native network");
         if (from.equals(to)) return Optional.of(new RouteResult(List.of(start), List.of(), 0, 0));
         NetAnalyse analysis = new NetAnalyse();
         PathWgtParam weights = new PathWgtParam();
@@ -39,12 +50,16 @@ public final class MapGisNetworkRouter implements RouteProvider {
         PathInfos paths = null;
         try {
             if (analysis.setNetCls(network) <= 0) throw new IllegalStateException("MapGIS 设置网络失败");
-            if (!weights.setPathMode(PathMode.userDefine)
-                    || !weights.addWeight(WgtUsedType.usedDownedge, forwardMinutes)
-                    || !weights.addWeight(WgtUsedType.usedUpedge, reverseMinutes)
-                    || !weights.addWeight(WgtUsedType.usedNod, nodeMinutes)
-                    || !analysis.setNetAnalyOption(network, weights))
-                throw new IllegalStateException("MapGIS 设置分钟阻抗权失败，请先创建并更新网络权");
+            boolean exercise=Double.isFinite(exerciseSpeedKph);
+            // Uniform speed means minimum distance and minimum travel time have identical
+            // ordering. Built-in mode never hands the incomplete custom-weight array to JNI.
+            boolean configured=exercise ? weights.setPathMode(PathMode.systemMode_MinDis)
+                    : weights.setPathMode(PathMode.userDefine)
+                    && weights.addWeight(WgtUsedType.usedDownedge, forwardMinutes)
+                    && weights.addWeight(WgtUsedType.usedUpedge, reverseMinutes)
+                    && weights.addWeight(WgtUsedType.usedNod, nodeMinutes);
+            if (!configured || !analysis.setNetAnalyOption(network, weights))
+                throw new IllegalStateException("MapGIS 路径权重模式配置失败");
             flags.append(new NetFlag(FlagType.nodeType, from, 0, start));
             flags.append(new NetFlag(FlagType.nodeType, to, 0, destination));
             analysis.setNetFlagList(flags);
@@ -58,17 +73,25 @@ public final class MapGisNetworkRouter implements RouteProvider {
             if (paths.size() == 0) return Optional.empty();
             PathInfo path = paths.get(0);
             var edges = path.getEdges(); var nodes = path.getNodes();
+            // This SDK returns one empty PathInfo (rather than an empty PathInfos)
+            // when barriers disconnect an otherwise valid request.
+            boolean emptyPath=edges!=null && nodes!=null && edges.size()==0 && nodes.size()<2;
+            if (emptyPath && !blockedEdges.isEmpty()) return Optional.empty();
+            if (edges == null || nodes == null || edges.size()==0 || nodes.size()<2
+                    || nodes.get(0)!=from.intValue() || nodes.get(nodes.size()-1)!=to.intValue())
+                throw new IllegalStateException("Native route endpoints are incomplete or differ from request");
             List<String> roadIds = new ArrayList<>(), routeNodes = new ArrayList<>();
             double distance = 0;
             for (int i = 0; i < edges.size(); i++) {
                 int edge = Math.abs(edges.get(i));
                 if (blockedEdges.contains(edge)) throw new IllegalStateException("MapGIS 路径包含阻断边，拒绝输出安全路线");
-                double length = network.getEdgeLength(edge);
+                double geometryLength=MapGisNetworkLength.geometryMetres(network,edge);
+                double length=geometryLength;
                 if (!Double.isFinite(length) || length < 0) throw new IllegalStateException("Invalid native edge length");
                 distance += length * kilometersPerNetworkUnit; roadIds.add(Integer.toString(edge));
             }
             for (int i = 0; i < nodes.size(); i++) routeNodes.add(Integer.toString(nodes.get(i)));
-            double minutes = path.getPathWgt();
+            double minutes = exercise ? com.mapgis.floodguard.business.ExerciseTravelTime.minutes(distance*1000,exerciseSpeedKph) : path.getPathWgt();
             if (!Double.isFinite(minutes) || minutes < 0) throw new IllegalStateException("Invalid native route impedance");
             return Optional.of(new RouteResult(List.copyOf(routeNodes), List.copyOf(roadIds), distance, minutes));
         } finally {

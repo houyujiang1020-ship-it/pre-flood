@@ -30,6 +30,9 @@ class JobResult(BaseModel):
     statistics: dict[str, Any]
     inference_seconds: float
     model_version: str
+    contract_path: Path | None = None
+    contract_sha256: str | None = None
+    probability_path: Path | None = None
 
 
 class JobResponse(BaseModel):

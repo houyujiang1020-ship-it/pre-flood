@@ -39,7 +39,14 @@ public final class EmergencyRouter {
         return new RouteResult(List.copyOf(nodes), List.copyOf(roads), distance, cost.get(destination));
     }
 
-    public record RouteResult(List<String> nodes, List<String> roadIds, double distanceKm, double estimatedMinutes) {}
+    public record RouteResult(List<String> nodes, List<String> roadIds, double distanceKm, double estimatedMinutes) {
+        public RouteResult {
+            nodes = List.copyOf(nodes); roadIds = List.copyOf(roadIds);
+            if (nodes.isEmpty() || nodes.stream().anyMatch(String::isBlank) || roadIds.stream().anyMatch(String::isBlank)
+                    || !Double.isFinite(distanceKm) || distanceKm < 0 || !Double.isFinite(estimatedMinutes) || estimatedMinutes < 0)
+                throw new IllegalArgumentException("Invalid route geometry/metrics");
+        }
+    }
     private record Node(String name, double cost) {}
     private record Step(String node, RoadEdge edge) {}
 }

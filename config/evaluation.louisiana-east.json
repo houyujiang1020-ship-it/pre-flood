@@ -1,0 +1,15 @@
+{
+  "data_root": "data/spacenet8/sample",
+  "splits": {
+    "train": [
+      {"area": "Germany_Training_Public", "label": "0_41_59.geojson"}
+    ],
+    "validation": [
+      {"area": "Germany_Training_Public", "label": "0_45_64.geojson"}
+    ],
+    "test": [
+      {"area": "Louisiana-East_Training_Public", "label": "1_7_88.geojson"},
+      {"area": "Louisiana-East_Training_Public", "label": "0_14_17.geojson"}
+    ]
+  }
+}

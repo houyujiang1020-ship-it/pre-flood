@@ -1,0 +1,5 @@
+# Install into the existing research environment, never app/ai-service.
+fastapi==0.116.1
+uvicorn==0.35.0
+httpx==0.28.1
+# numpy, rasterio and Pillow are provided by .venv-training.

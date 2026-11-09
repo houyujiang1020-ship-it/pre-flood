@@ -1,0 +1,7 @@
+# Research candidate only. Thresholds were fitted on Germany validation and are embedded in the checkpoint.
+ai:
+  backend: siamunet-smoke
+  device: cuda
+  checkpoint: models/experiments/germany-reviewed-gn-sampler-calibrated-20260912/best_model.pth
+  architecture_source: upstream/SpaceNet8/baseline/models/other/siamunetdif.py
+  image_size: 512

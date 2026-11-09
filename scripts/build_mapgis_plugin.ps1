@@ -34,4 +34,5 @@ try {
 
 $artifact = Join-Path $projectRoot 'app\mapgis-flood-desktop\target\mapgis-floodguard-plugin.jar'
 if (-not (Test-Path -LiteralPath $artifact)) { throw "Plugin artifact was not created: $artifact" }
+& (Join-Path $PSScriptRoot 'verify_plugin_registration.ps1') -Jdk21 $Jdk21 -MapGisProgram $MapGisProgram
 Write-Host "MapGIS plugin built: $artifact"

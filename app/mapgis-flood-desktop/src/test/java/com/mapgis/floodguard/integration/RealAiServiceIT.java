@@ -35,6 +35,9 @@ class RealAiServiceIT {
                 job = client.job(job.job_id());
             }
             assertEquals("completed", job.status(), job.error());
+            var contract = com.mapgis.floodguard.ai.InferenceContract.verify(job);
+            assertEquals("FALLBACK", contract.path("execution_mode").asText());
+            assertThrows(IllegalStateException.class, () -> com.mapgis.floodguard.ai.InferenceContract.requireBridgeReady(contract));
             assertTrue(Files.isRegularFile(Path.of(job.result().path("mask_path").asText())));
             assertTrue(Files.isRegularFile(Path.of(job.result().path("preview_path").asText())));
             var statistics = job.result().path("statistics");

@@ -5,6 +5,18 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ResourceDispatcherTest {
+    @Test void splitsDemandAndReportsUnmetCapacity() {
+        var resources = List.of(new ResourceDispatcher.Resource("a","rescue","A",4), new ResourceDispatcher.Resource("b","rescue","B",3));
+        var plan = new ResourceDispatcher().plan(resources,"rescue","target",10,
+                (s,t) -> Optional.of(new EmergencyRouter.RouteResult(List.of(s,t),List.of("road"),1,2)));
+        assertEquals(3,plan.unfulfilled());
+        assertEquals(7,plan.allocations().stream().mapToInt(ResourceDispatcher.Allocation::assignedCapacity).sum());
+    }
+    @Test void rejectsDuplicateResourcesAndInvalidRouteMetrics() {
+        var resource = new ResourceDispatcher.Resource("same","rescue","A",4);
+        assertThrows(IllegalArgumentException.class, () -> new ResourceDispatcher().plan(List.of(resource,resource),"rescue","B",1,(s,t)->Optional.empty()));
+        assertThrows(IllegalArgumentException.class, () -> new EmergencyRouter.RouteResult(List.of("a"),List.of(),0,Double.NaN));
+    }
     @Test void filtersCapacityTypeAndUnreachableThenRanksTime() {
         var resources = List.of(new ResourceDispatcher.Resource("fast", "hospital", "A", 20),
                 new ResourceDispatcher.Resource("slow", "hospital", "B", 20),
